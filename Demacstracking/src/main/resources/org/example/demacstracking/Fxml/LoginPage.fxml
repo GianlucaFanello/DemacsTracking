@@ -68,7 +68,6 @@
             </Label>
             <ImageView fx:id="accedi" fitHeight="475.0" fitWidth="542.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <image>
-                  <Image url="../foto/DemacsTracking.png" />
                </image>
             </ImageView>
          </children>
