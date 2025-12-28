@@ -7,7 +7,13 @@ import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
 
-public class SceltaPageController {
+public class SceltaInsegnamentiController {
+    public void tastoPrecedente(MouseEvent mouseEvent) {
+    }
+
+    public void tastoSuccessivo(MouseEvent mouseEvent) {
+    }
+
     public void tastoIndietro(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
             try {
@@ -17,19 +23,6 @@ public class SceltaPageController {
             }
 
         }
-
-    }
-
-    public void tastoCubi(MouseEvent mouseEvent) {
-    }
-
-    public void tastoFacolta(MouseEvent mouseEvent) {
-    }
-
-    public void tastoHome(MouseEvent mouseEvent) {
-    }
-
-    public void tastoLogOut(MouseEvent mouseEvent) {
 
     }
 }
