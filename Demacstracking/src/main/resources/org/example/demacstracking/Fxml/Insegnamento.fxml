@@ -102,7 +102,7 @@
                      <children>
                         <ImageView fitHeight="26.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                            <image>
-                              <Image url="@../foto/free-mail-icon-142-thumb.png" />
+                              <Image url="@../foto/mail.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="53.0" prefWidth="132.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -116,9 +116,7 @@
                            </padding>
                         </Label>
                         <ImageView fitHeight="26.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../foto/telefono.png" />
-                           </image>
+
                            <GridPane.margin>
                               <Insets top="-20.0" />
                            </GridPane.margin>
@@ -140,7 +138,7 @@
                <children>
                   <ImageView fitHeight="98.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                      <image>
-                        <Image url="@../foto/ChatGPT%20Image%2012%20nov%202025,%2015_13_20.png" />
+                        <Image url="@../foto/iconaProfilo.png" />
                      </image>
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="143.0" prefWidth="151.0" GridPane.columnIndex="3">
