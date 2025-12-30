@@ -1,9 +1,10 @@
-package org.example.demacstracking.controller;
+package main.java.org.example.demacstracking.controller;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import org.example.demacstracking.view.SceneHandler;
+import main.java.org.example.demacstracking.view.SceneHandler;
+
 
 import java.io.IOException;
 

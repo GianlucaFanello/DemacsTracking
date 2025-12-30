@@ -1,4 +1,4 @@
-package org.example.demacstracking.model.db.FactoryMethod;
+package main.java.org.example.demacstracking.model.dto.strutture;
 
 public class Distributore extends Struttura {
     public int id;
@@ -9,4 +9,11 @@ public class Distributore extends Struttura {
         this.cubo = cubo;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

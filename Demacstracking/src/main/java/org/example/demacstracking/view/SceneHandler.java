@@ -1,6 +1,7 @@
-package org.example.demacstracking.view;
+package main.java.org.example.demacstracking.view;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -26,7 +27,7 @@ public class SceneHandler {
         FXMLLoader loader = new FXMLLoader(loadResource(fxmlFile));
         stage.setMinWidth(600);
         stage.setMinHeight(400);
-        Scene scene = new Scene(loader.load(),600,400);
+        Scene scene = new Scene((Parent) loader.load(), 600.0, 400.0);
         stage.setScene(scene);
         stage.setTitle("Demacs Tracking");
         stage.show();

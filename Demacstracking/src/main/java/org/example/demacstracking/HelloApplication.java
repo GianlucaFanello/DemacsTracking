@@ -1,8 +1,9 @@
-package org.example.demacstracking;
+package main.java.org.example.demacstracking;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.example.demacstracking.view.SceneHandler;
+import main.java.org.example.demacstracking.view.SceneHandler;
+
 
 import java.io.IOException;
 

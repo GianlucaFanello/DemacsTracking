@@ -1,4 +1,4 @@
-package org.example.demacstracking.controller;
+package main.java.org.example.demacstracking.controller;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
