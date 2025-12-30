@@ -1,4 +1,4 @@
-package main.java.org.example.demacstracking;
+package org.example.demacstracking;
 
 import javafx.application.Application;
 

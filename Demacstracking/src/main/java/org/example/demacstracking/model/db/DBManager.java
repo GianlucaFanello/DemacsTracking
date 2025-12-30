@@ -1,4 +1,4 @@
-package main.java.org.example.demacstracking.model.db;
+package org.example.demacstracking.model.db;
 
 import java.net.ConnectException;
 import java.sql.Connection;
