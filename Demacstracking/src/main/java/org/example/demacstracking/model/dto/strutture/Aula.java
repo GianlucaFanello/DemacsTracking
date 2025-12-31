@@ -1,4 +1,4 @@
-package main.java.org.example.demacstracking.model.dto.strutture;
+package org.example.demacstracking.model.dto.strutture;
 
 public class Aula extends Struttura {
     public String nome;

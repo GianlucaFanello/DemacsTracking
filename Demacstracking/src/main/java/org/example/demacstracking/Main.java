@@ -1,6 +1,5 @@
 package org.example.demacstracking;
 
-import javafx.application.Application;
 
 import java.sql.SQLException;
 

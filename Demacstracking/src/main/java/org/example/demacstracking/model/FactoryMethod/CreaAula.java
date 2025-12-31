@@ -1,7 +1,7 @@
-package main.java.org.example.demacstracking.model.FactoryMethod;
+package org.example.demacstracking.model.FactoryMethod;
 
-import main.java.org.example.demacstracking.model.dto.strutture.Aula;
-import main.java.org.example.demacstracking.model.dto.strutture.Struttura;
+import org.example.demacstracking.model.dto.strutture.Aula;
+import org.example.demacstracking.model.dto.strutture.Struttura;
 
 public class CreaAula extends StrutturaFactory {
 

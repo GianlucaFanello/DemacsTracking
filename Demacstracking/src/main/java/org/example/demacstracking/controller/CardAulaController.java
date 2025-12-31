@@ -1,4 +1,4 @@
-package main.java.org.example.demacstracking.controller;
+package org.example.demacstracking.controller;
 
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;

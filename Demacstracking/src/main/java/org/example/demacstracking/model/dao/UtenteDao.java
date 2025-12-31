@@ -1,7 +1,7 @@
-package main.java.org.example.demacstracking.model.dao;
+package org.example.demacstracking.model.dao;
 
-import main.java.org.example.demacstracking.model.db.DBManager;
-import main.java.org.example.demacstracking.model.dto.Utente;
+import org.example.demacstracking.model.db.DBManager;
+import org.example.demacstracking.model.dto.Utente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

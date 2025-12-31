@@ -1,4 +1,4 @@
-package main.java.org.example.demacstracking.view;
+package org.example.demacstracking.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

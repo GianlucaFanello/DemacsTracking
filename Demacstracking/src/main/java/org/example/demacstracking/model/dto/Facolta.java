@@ -1,4 +1,4 @@
-package main.java.org.example.demacstracking.model.dto;
+package org.example.demacstracking.model.dto;
 
 public class Facolta {
 
