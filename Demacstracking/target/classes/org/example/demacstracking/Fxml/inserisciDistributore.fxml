@@ -21,7 +21,7 @@
       <RowConstraints maxHeight="528.4" minHeight="10.0" prefHeight="523.5999816894531" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView fitHeight="286.0" fitWidth="367.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="286.0" fitWidth="367.0"  pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../foto/DemacsTracking.png" />
          </image>
@@ -56,7 +56,25 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="durata" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+             <TextField fx:id="id" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                 <GridPane.margin>
+                     <Insets right="10.0" />
+                 </GridPane.margin>
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Text>
+             <TextField fx:id="cubo" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cubo:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                 <GridPane.margin>
+                     <Insets right="10.0" />
+                 </GridPane.margin>
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Text>
+            <TextField fx:id="ubicazione" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicazione:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -65,7 +83,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Label fx:id="messaggioDiRiuscita" text="Distributore inserito con successo!" textFill="#26ff00" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Label fx:id="messaggioDiRiuscita" text="Distributore inserito con successo!" textFill="#26ff00" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

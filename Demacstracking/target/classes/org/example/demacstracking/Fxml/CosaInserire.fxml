@@ -19,7 +19,7 @@
       <RowConstraints maxHeight="528.4" minHeight="10.0" prefHeight="523.5999816894531" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView fitHeight="286.0" fitWidth="367.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="286.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../foto/DemacsTracking.png" />
          </image>

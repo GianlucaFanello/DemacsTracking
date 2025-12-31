@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1280.0" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top, red, orange);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.RegisterPageDController">
+<BorderPane maxHeight="800.0" maxWidth="1280.0" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top, red, orange);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.RegisterPageDController">
    <right>
       <GridPane fx:id="destraComp" prefHeight="400.0" prefWidth="606.0" style="-fx-background-color: linear-gradient(to top, red, orange); -fx-border-image-insets: 1;" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -106,7 +98,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
             </PasswordField>
-            <Button fx:id="tastoRegistrati" mnemonicParsing="false" onMouseClicked="#tastoRegistrati" prefHeight="65.0" prefWidth="137.0" style="-fx-background-radius: 50; -fx-background-color: black; -fx-padding: 30px;" text="REGISTRATI" textFill="#fffefe" GridPane.rowIndex="11">
+            <Button fx:id="tastoRegistrati" mnemonicParsing="false" onMouseClicked="#tastoRegistrati" prefHeight="46.0" prefWidth="238.0" style="-fx-background-radius: 50; -fx-background-color: black; -fx-padding: 30px;" text="REGISTRATI" textFill="#fffefe" GridPane.rowIndex="11">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

@@ -23,7 +23,6 @@
    <children>
       <ImageView fitHeight="286.0" fitWidth="367.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="../foto/DemacsTracking.png" />
          </image>
       </ImageView>
       <Label prefHeight="66.0" prefWidth="498.0" text="INFORMAZIONI FACOLTÀ" GridPane.halignment="CENTER" GridPane.valignment="CENTER">

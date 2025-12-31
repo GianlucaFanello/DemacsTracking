@@ -21,7 +21,10 @@ public class AulaDao {
         String query = "INSERT INTO aula (nome,ubicazione,capienza,cubo) VALUES (?,?,?,?)";
 
         PreparedStatement stmt = connection.prepareStatement(query);
-
+        stmt.setString(1, aula.getNome());
+        stmt.setString(2, aula.getUbicazione());
+        stmt.setInt(3, aula.getCapienza());
+        stmt.setString(4, aula.getCubo());
         int inserito =  stmt.executeUpdate();
         stmt.close();
 
