@@ -9,52 +9,52 @@ import java.sql.SQLException;
 
 public class SegreteriaDao {
 
-    private Connection connection;
-
-    public SegreteriaDao() throws SQLException {
-        connection = DBManager.getInstance().getConnection();
-    }
+    public SegreteriaDao() {}
 
     // --- INSERISCI SEGRETERIA ---
     public boolean inserisciSegreteria(Segreteria segreteria) throws SQLException {
         String query = "INSERT INTO segreteria (id,ubicazione,cubo) VALUES (?,?,?)";
-        PreparedStatement stmt = connection.prepareStatement(query);
-        stmt.setInt(1, segreteria.getId());
-        stmt.setString(2, segreteria.getUbicazione());
-        stmt.setString(3, segreteria.getCubo());
 
-        int inserito = stmt.executeUpdate();
-        stmt.close();
+        try ( Connection connection = DBManager.getInstance().getConnection();
+              PreparedStatement stmt = connection.prepareStatement(query)
+        ) {
+            stmt.setInt(1, segreteria.getId());
+            stmt.setString(2, segreteria.getUbicazione());
+            stmt.setString(3, segreteria.getCubo());
 
-        return inserito > 0;
+            int inserito = stmt.executeUpdate();
+            return inserito > 0;
+        }
     }
 
     // --- ELIMINA SEGRETERIA ---
     public boolean eliminaSegreteria(int id, String cubo) throws SQLException {
         String query = "DELETE FROM segreteria WHERE id=? AND cubo=?";
-        PreparedStatement stmt = connection.prepareStatement(query);
-        stmt.setInt(1, id);
 
-        int eliminato = stmt.executeUpdate();
-        stmt.close();
-
-        return eliminato > 0;
-
+        try ( Connection connection = DBManager.getInstance().getConnection();
+              PreparedStatement stmt = connection.prepareStatement(query);
+        ) {
+            stmt.setInt(1, id);
+            int eliminato = stmt.executeUpdate();
+            return eliminato > 0;
+        }
     }
 
 
     // --- MODIFICA SEGRETERIA ---
     public boolean modificaSegreteria(Segreteria segreteria) throws SQLException {
         String query = "UPDATE segreteria SET ubicazione=? WHERE id=? AND cubo=?";
-        PreparedStatement stmt = connection.prepareStatement(query);
-        stmt.setString(1, segreteria.getUbicazione());
-        stmt.setInt(2, segreteria.getId());
-        stmt.setString(3, segreteria.getCubo());
 
-        int modifica = stmt.executeUpdate();
-        stmt.close();
+        try ( Connection connection = DBManager.getInstance().getConnection();
+              PreparedStatement stmt = connection.prepareStatement(query);
+        ) {
+            stmt.setString(1, segreteria.getUbicazione());
+            stmt.setInt(2, segreteria.getId());
+            stmt.setString(3, segreteria.getCubo());
 
-        return modifica > 0;
+            int modifica = stmt.executeUpdate();
+            return modifica > 0;
+        }
     }
 
 }

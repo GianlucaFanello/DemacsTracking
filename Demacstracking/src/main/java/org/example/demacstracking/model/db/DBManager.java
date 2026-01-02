@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class DBManager {
 
     private static DBManager manager;
-    private Connection con;
 
     private DBManager(){}
 
@@ -19,11 +18,8 @@ public class DBManager {
     }
 
     public Connection getConnection() throws SQLException {
-        if(con==null){
-            String url = "jdbc:sqlite:DemacsTracking.db";
-            con = DriverManager.getConnection(url);
-            System.out.println("Connected");
-        }
-        return con;
+
+        String url = "jdbc:sqlite:DemacsTracking.db";
+        return DriverManager.getConnection(url);
     }
 }
