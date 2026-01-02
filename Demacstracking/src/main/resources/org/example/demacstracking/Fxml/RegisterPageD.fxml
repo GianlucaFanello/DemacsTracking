@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1280.0" minHeight="800.0" minWidth="1280.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top, red, orange);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.RegisterPageDController">
+<BorderPane maxHeight="800.0" maxWidth="1280.0" minHeight="800.0" minWidth="1280.0" onKeyPressed="#tastoIndietro" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top, red, orange);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.RegisterPageDController">
    <right>
       <GridPane fx:id="destraComp" prefHeight="400.0" prefWidth="606.0" style="-fx-background-color: linear-gradient(to top, red, orange); -fx-border-image-insets: 1;" BorderPane.alignment="CENTER">
          <columnConstraints>

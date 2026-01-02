@@ -36,6 +36,6 @@ public class SceneHandler {
 
     public void init(Stage stage) throws IOException {
         this.stage = stage;
-        sceneLoader("CardAula.fxml");
+        sceneLoader("HomePageDemacsTracking.fxml");
     }
 }

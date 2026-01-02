@@ -5,6 +5,4 @@ import org.example.demacstracking.model.dto.strutture.Struttura;
 public abstract class StrutturaFactory {
 
     public abstract Struttura creaStruttura();
-
-    public abstract boolean salva();
 }

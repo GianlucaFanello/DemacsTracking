@@ -19,21 +19,27 @@ import java.io.IOException;
 public class CosaInserireController {
 
 
-    public void tastoInserisciAula(MouseEvent mouseEvent) {
+    public void tastoInserisciAula(MouseEvent mouseEvent) throws IOException {
         AulaHandler.getInstance().aulaCreator();
+        SceneHandler.getInstance().sceneLoader("InserisciAula.fxml");
+
 
     }
 
-    public void tastoInserisciSegreteria(MouseEvent mouseEvent) {
+    public void tastoInserisciSegreteria(MouseEvent mouseEvent) throws IOException {
         SegreteriaHandler.getInstance().SegreteriaCreator();
+        SceneHandler.getInstance().sceneLoader("inserisciSegreteria.fxml");
+
     }
 
-    public void tastoInserisciDistributore(MouseEvent mouseEvent) {
+    public void tastoInserisciDistributore(MouseEvent mouseEvent) throws IOException {
         DistributoreHandler.getInstance().distributoreCreator();
+        SceneHandler.getInstance().sceneLoader("inserisciDistributore.fxml");
+
     }
 
     public void tastoIndietro(KeyEvent keyEvent) throws IOException {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
+        if(keyEvent.getCode() == KeyCode.ESCAPE) {
             SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
 
         }

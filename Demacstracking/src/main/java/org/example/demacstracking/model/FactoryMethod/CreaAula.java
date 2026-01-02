@@ -10,8 +10,4 @@ public class CreaAula extends StrutturaFactory {
         return new Aula();
     }
 
-    @Override
-    public boolean salva() {
-        return false;
-    }
 }

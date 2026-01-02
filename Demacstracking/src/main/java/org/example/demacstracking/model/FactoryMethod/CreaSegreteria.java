@@ -9,8 +9,4 @@ public class CreaSegreteria extends StrutturaFactory{
         return new Segreteria();
     }
 
-    @Override
-    public boolean salva() {
-        return false;
-    }
 }

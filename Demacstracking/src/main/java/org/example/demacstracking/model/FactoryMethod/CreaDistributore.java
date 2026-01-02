@@ -9,8 +9,4 @@ public class CreaDistributore extends StrutturaFactory{
         return new Distributore();
     }
 
-    @Override
-    public boolean salva() {
-        return false;
-    }
 }

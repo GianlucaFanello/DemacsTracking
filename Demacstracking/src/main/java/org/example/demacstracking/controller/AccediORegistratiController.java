@@ -13,7 +13,7 @@ public class AccediORegistratiController {
     }
 
     public void tastoIndietro(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
+        if(keyEvent.getCode() == KeyCode.ESCAPE) {
 
         }
 
