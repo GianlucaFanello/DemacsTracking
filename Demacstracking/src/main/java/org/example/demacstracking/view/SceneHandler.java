@@ -25,9 +25,9 @@ public class SceneHandler {
 
     public void sceneLoader(String fxmlFile) throws IOException {
         FXMLLoader loader = new FXMLLoader(loadResource(fxmlFile));
-        stage.setWidth(1280);
-        stage.setMinHeight(720);
-        Scene scene = new Scene((Parent) loader.load(), 1280, 720);
+        stage.setWidth(1024);
+        stage.setMinHeight(700);
+        Scene scene = new Scene((Parent) loader.load(), 1024, 700);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.setTitle("Demacs Tracking");
@@ -37,6 +37,6 @@ public class SceneHandler {
 
     public void init(Stage stage) throws IOException {
         this.stage = stage;
-        sceneLoader("HomePageDemacsTracking.fxml");
+        sceneLoader("SceltaAccesso.fxml");
     }
 }

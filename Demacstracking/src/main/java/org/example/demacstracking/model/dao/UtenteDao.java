@@ -14,7 +14,7 @@ public class UtenteDao {
 
     // --- METODO PER L'INSERIMENTO DI UN UTENTE ---
     public boolean inserisciUtente(Utente utente, String password) throws SQLException {
-        String query = "INSERT INTO utente VALUES (?, ?, ?, ?, ?, ?);";
+        String query = "INSERT INTO utente(nome,cognome,username,email,password,status) VALUES (?, ?, ?, ?, ?, ?);";
 
         try (Connection connection = DBManager.getInstance().getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)
@@ -66,6 +66,46 @@ public class UtenteDao {
                 utente = new Utente(nome, cognome, username, email, status);
             }
             return utente;
+        }
+    }
+
+    public String getPasswordByEmail(String email) throws SQLException {
+        String query = "SELECT password FROM utente WHERE email = ?";
+
+        try (Connection connection = DBManager.getInstance().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)
+        ) {
+            stmt.setString(1, email);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()) {
+                return rs.getString("password");
+            }
+            return null;
+        }
+    }
+
+    public boolean emailPresente(String email) throws SQLException {
+        String query = "SELECT 1 FROM utente WHERE email = ?";
+
+        try (Connection connection = DBManager.getInstance().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)
+        ) {
+            stmt.setString(1, email);
+
+            return stmt.executeQuery().next();
+        }
+    }
+
+    public boolean usernamePresente(String username) throws SQLException {
+        String query = "SELECT 1 FROM utente WHERE username = ?";
+
+        try (Connection connection = DBManager.getInstance().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)
+        ){
+            stmt.setString(1, username);
+            return stmt.executeQuery().next();
         }
     }
 }

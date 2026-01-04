@@ -14,10 +14,10 @@ public class Utente {
     public Utente(String nome, String cognome, String username, String email, String status) {
         this.nome = nome;
         this.cognome = cognome;
+        this.username = username;
         this.email = email;
         this.status = status;
     }
-
 
     // --- GETTER ---
 

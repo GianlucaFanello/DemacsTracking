@@ -34,7 +34,7 @@ public class InserisciAulaController {
     }
 
     public void tastoLogOut(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
 
