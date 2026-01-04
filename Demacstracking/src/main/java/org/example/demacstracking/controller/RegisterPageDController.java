@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class RegisterPageDController {
     public void tastoIndietro(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
+        if(keyEvent.getCode() == KeyCode.ESCAPE ) {
             try {
                 SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
             } catch (IOException e) {
@@ -21,7 +21,8 @@ public class RegisterPageDController {
 
     }
 
-    public void tastoRegistrati(MouseEvent mouseEvent) {
+    public void tastoRegistrati(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 
     public void labelAccedi(MouseEvent mouseEvent) {

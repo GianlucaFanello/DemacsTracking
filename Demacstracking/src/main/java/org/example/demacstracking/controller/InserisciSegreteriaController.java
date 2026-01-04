@@ -24,7 +24,7 @@ public class InserisciSegreteriaController {
     public Label messaggioDiRiuscita;
 
     public void tastoIndietro(KeyEvent keyEvent) throws IOException {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
+        if(keyEvent.getCode() == KeyCode.ESCAPE) {
             SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
         }
 

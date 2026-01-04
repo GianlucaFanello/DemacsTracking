@@ -27,8 +27,8 @@ public class InserisciAulaController {
     public Label messaggioDiRiuscita;
 
     public void tastoIndietro(KeyEvent keyEvent) throws IOException {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
-            SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+        if(keyEvent.getCode() == KeyCode.ESCAPE) {
+            SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
         }
 
     }

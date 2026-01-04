@@ -24,7 +24,7 @@ public class InserisciDistributoreController {
 
     public void tastoIndietro(KeyEvent keyEvent) throws IOException {
         if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
-            SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+            SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
 
         }
 
