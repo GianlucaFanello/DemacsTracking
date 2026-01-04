@@ -25,9 +25,10 @@ public class SceneHandler {
 
     public void sceneLoader(String fxmlFile) throws IOException {
         FXMLLoader loader = new FXMLLoader(loadResource(fxmlFile));
-        stage.setMinWidth(600);
-        stage.setMinHeight(400);
-        Scene scene = new Scene((Parent) loader.load(), 600.0, 400.0);
+        stage.setWidth(1280);
+        stage.setMinHeight(720);
+        Scene scene = new Scene((Parent) loader.load(), 1280, 720);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.setTitle("Demacs Tracking");
         stage.show();
