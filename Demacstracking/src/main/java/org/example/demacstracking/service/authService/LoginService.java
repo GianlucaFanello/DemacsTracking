@@ -1,6 +1,7 @@
 package org.example.demacstracking.service.authService;
 
 import org.example.demacstracking.model.dao.UtenteDao;
+import org.example.demacstracking.model.dto.Utente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -14,13 +15,28 @@ public class LoginService {
         this.utenteDao = utenteDao;
     }
 
-    public boolean login(String email, String password) throws IOException, SQLException {
+    public Utente login(String email, String password) throws IOException, SQLException {
 
-        String passwordCryptata = utenteDao.getPasswordByEmail(email);
+        if (email.isEmpty() || password.isEmpty())
+            return null;
 
-        if(email.isEmpty() || password.isEmpty() || passwordCryptata == null || passwordCryptata.isEmpty()){
-            return false;
+        Utente utente = utenteDao.getUtenteByEmail(email);
+
+        if(utente == null){
+            return null;
         }
-        return PasswordService.verify(password,passwordCryptata);
+
+        String passwordCryptata = utente.getPassword();
+
+        if(PasswordService.verify(password,passwordCryptata))
+        {
+            return new Utente(utente.getNome(),
+                    utente.getCognome(),
+                    utente.getUsername(),
+                    utente.getEmail(),
+                    utente.getStatus());
+        }
+
+        return null;
     }
 }

@@ -7,8 +7,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.dao.UtenteDao;
+import org.example.demacstracking.model.dto.Utente;
 import org.example.demacstracking.service.authService.LoginService;
 import org.example.demacstracking.service.authService.PasswordService;
+import org.example.demacstracking.service.utenteService.UtenteCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -23,7 +25,7 @@ public class LoginPageController {
     @FXML
     private Label errore;
 
-    private UtenteDao utenteDao = new UtenteDao();
+    private final UtenteDao utenteDao = new UtenteDao();
 
     public void initialize(){
         errore.setVisible(false);
@@ -39,14 +41,15 @@ public class LoginPageController {
 
         LoginService  loginService = new LoginService(utenteDao);
 
-        if(loginService.login(emailInserita,passwordInserita)){
+        Utente utente = loginService.login(emailInserita,passwordInserita);
+        if( utente != null){
+            UtenteCorrente.getInstance().setUtente(utente);
+            System.out.println(UtenteCorrente.getInstance().getUtente().getEmail());
             SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
         }
         else{
-            errore.setVisible(true);
+            showError();
         }
-
-
     }
 
     public void tastoRegistrati(MouseEvent mouseEvent) throws IOException {
@@ -58,7 +61,8 @@ public class LoginPageController {
     }
 
     public void tastoOspite(MouseEvent mouseEvent) throws IOException {
-            SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
+        UtenteCorrente.getInstance().setStatus("ospite");
+        SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 
     public void showError() {

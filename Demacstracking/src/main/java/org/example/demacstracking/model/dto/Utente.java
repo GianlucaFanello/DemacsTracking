@@ -8,6 +8,7 @@ public class Utente {
     private String username;
     private String email;
     private String status;
+    private String password;
 
     public Utente() {}
 
@@ -17,6 +18,15 @@ public class Utente {
         this.username = username;
         this.email = email;
         this.status = status;
+    }
+
+    public Utente(String nome, String cognome, String username, String email, String status, String password) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.username = username;
+        this.email = email;
+        this.status = status;
+        this.password = password;
     }
 
     // --- GETTER ---
@@ -39,6 +49,10 @@ public class Utente {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     //  --- SETTER ---

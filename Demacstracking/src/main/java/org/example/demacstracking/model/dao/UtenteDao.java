@@ -69,8 +69,8 @@ public class UtenteDao {
         }
     }
 
-    public String getPasswordByEmail(String email) throws SQLException {
-        String query = "SELECT password FROM utente WHERE email = ?";
+    public Utente getUtenteByEmail(String email) throws SQLException {
+        String query = "SELECT * FROM utente WHERE email = ?";
 
         try (Connection connection = DBManager.getInstance().getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)
@@ -78,11 +78,18 @@ public class UtenteDao {
             stmt.setString(1, email);
 
             ResultSet rs = stmt.executeQuery();
-
+            Utente utente = null;
             if(rs.next()) {
-                return rs.getString("password");
+                String nome = rs.getString("nome");
+                String cognome = rs.getString("cognome");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String status = rs.getString("status");
+
+                utente = new Utente(nome, cognome, username,email, status, password);
             }
-            return null;
+
+            return utente;
         }
     }
 
