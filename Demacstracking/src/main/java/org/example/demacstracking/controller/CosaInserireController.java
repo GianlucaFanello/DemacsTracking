@@ -34,7 +34,7 @@ public class CosaInserireController {
 
     public void tastoInserisciDistributore(MouseEvent mouseEvent) throws IOException {
         DistributoreHandler.getInstance().distributoreCreator();
-        SceneHandler.getInstance().sceneLoader("inserisciDistributore.fxml");
+        SceneHandler.getInstance().sceneLoader("InserisciDistributore.fxml");
 
     }
 

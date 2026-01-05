@@ -7,11 +7,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.dao.UtenteDao;
-import org.example.demacstracking.service.PasswordService;
+import org.example.demacstracking.service.authService.LoginService;
+import org.example.demacstracking.service.authService.PasswordService;
 import org.example.demacstracking.view.SceneHandler;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -37,18 +36,17 @@ public class LoginPageController {
 
         String emailInserita = email.getText().trim();
         String passwordInserita = password.getText();
-        String passwordCryptata = utenteDao.getPasswordByEmail(emailInserita);
 
-        if(emailInserita.isEmpty() || passwordInserita.isEmpty() || passwordCryptata.isEmpty()){
-            showError();
-            return;
-        }
+        LoginService  loginService = new LoginService(utenteDao);
 
-        if (PasswordService.verify(passwordInserita,passwordCryptata))
+        if(loginService.login(emailInserita,passwordInserita)){
             SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
-        else {
-            showError();
         }
+        else{
+            errore.setVisible(true);
+        }
+
+
     }
 
     public void tastoRegistrati(MouseEvent mouseEvent) throws IOException {

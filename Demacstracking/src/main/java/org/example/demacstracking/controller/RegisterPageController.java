@@ -7,7 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.dao.UtenteDao;
 import org.example.demacstracking.model.dto.Utente;
-import org.example.demacstracking.service.PasswordService;
+import org.example.demacstracking.service.authService.PasswordService;
+import org.example.demacstracking.service.authService.RegistrazioneService;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -46,33 +47,12 @@ public class RegisterPageController {
         String email = campoEmail.getText().trim().toLowerCase();
         String password = campoPassword.getText();
 
-        if(nome.isEmpty() || cognome.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty()){
-            showError("Non tutti i campi sono stati compilati");
-            return;
-        }
-
-        if(utenteDao.usernamePresente(username)) {
-            showError("Username già usato");
-            return;
-        }
-
-        if(utenteDao.emailPresente(email)){
-            showError("Email già presente");
-            return;
-        }
-
-        /* --- Status può essere utente o admin
-        --- Admin è uno solo istanziato all'inizio
-         --- Altri Admin possono essere aggiunti in seguito dagli account Admin (NON IMPLEMENTATA) ---
-        */
-        Utente utente = new Utente(nome, cognome, username, email, "utente");
-
-        String passwordCryptata = PasswordService.passwordCryptata(password);
-
-        if (utenteDao.inserisciUtente(utente, passwordCryptata) )
+        RegistrazioneService registrazioneService = new RegistrazioneService(utenteDao);
+        String result =registrazioneService.registrazione(nome,cognome,username,email,password);
+        if (result.equals("OK"))
             SceneHandler.getInstance().sceneLoader("LoginPage.fxml");
         else
-            showError("Dati inseriti non corretti");
+            showError(result);
     }
 
 

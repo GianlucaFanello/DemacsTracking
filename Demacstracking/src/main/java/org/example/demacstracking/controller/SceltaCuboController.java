@@ -30,7 +30,7 @@ public class SceltaCuboController {
     }
 
     public void tastoAggiungi(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("inserisciCubo.fxml");
+        SceneHandler.getInstance().sceneLoader("InserisciCubo.fxml");
 
     }
 

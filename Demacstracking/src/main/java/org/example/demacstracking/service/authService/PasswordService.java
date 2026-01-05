@@ -1,4 +1,4 @@
-package org.example.demacstracking.service;
+package org.example.demacstracking.service.authService;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 

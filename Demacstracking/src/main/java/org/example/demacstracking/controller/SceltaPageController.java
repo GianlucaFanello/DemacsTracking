@@ -11,20 +11,6 @@ import org.example.demacstracking.view.SceneHandler;
 import java.io.IOException;
 
 public class SceltaPageController {
-    @FXML
-    public Button segnalazioni;
-
-    public void tastoIndietro(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ESCAPE) {
-            try {
-                SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-    }
 
     public void tastoCubi(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("SceltaCubo.fxml");
@@ -34,18 +20,12 @@ public class SceltaPageController {
         SceneHandler.getInstance().sceneLoader("SceltaFacoltaPage.fxml");
     }
 
-    public void tastoHome(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
+    public void tastoLogout(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
-    public void tastoLogOut(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
-
-
-    }
-
-    public void tastoFaiSegnalazione(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("inserisciSegnalazione.fxml");
+    public void tastoSegnala(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("InserisciSegnalazione.fxml");
 
     }
 
