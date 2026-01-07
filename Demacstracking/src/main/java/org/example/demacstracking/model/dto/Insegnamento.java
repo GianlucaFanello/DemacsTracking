@@ -1,17 +1,21 @@
 package org.example.demacstracking.model.dto;
 
+import java.sql.SQLException;
+
 public class Insegnamento {
 
-    private int id;
-    private String nome;
-    private int cfu;
-    private String descrizione;
+    protected String id;
+    protected String nome;
+    protected int cfu;
+    protected String descrizione;
     private String docente;
 
+    public Insegnamento(String id, String nome){
+        this.id = id;
+        this.nome = nome;
+    }
 
-    public Insegnamento() {}
-
-    public Insegnamento(int id, String nome, int cfu, String descrizione, String docente) {
+    public Insegnamento(String id, String nome, int cfu, String descrizione, String docente){
         this.id = id;
         this.nome = nome;
         this.cfu = cfu;
@@ -19,11 +23,11 @@ public class Insegnamento {
         this.docente = docente;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,11 +35,7 @@ public class Insegnamento {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getCfu() {
+    public int getCfu() throws SQLException {
         return cfu;
     }
 
@@ -43,7 +43,7 @@ public class Insegnamento {
         this.cfu = cfu;
     }
 
-    public String getDescrizione() {
+    public String getDescrizione() throws SQLException {
         return descrizione;
     }
 
@@ -51,11 +51,15 @@ public class Insegnamento {
         this.descrizione = descrizione;
     }
 
-    public String getDocente() {
+    public String getDocente() throws SQLException {
         return docente;
     }
 
     public void setDocente(String docente) {
         this.docente = docente;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

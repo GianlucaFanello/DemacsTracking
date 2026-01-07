@@ -44,7 +44,6 @@ public class LoginPageController {
         Utente utente = loginService.login(emailInserita,passwordInserita);
         if( utente != null){
             UtenteCorrente.getInstance().setUtente(utente);
-            System.out.println(UtenteCorrente.getInstance().getUtente().getEmail());
             SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
         }
         else{

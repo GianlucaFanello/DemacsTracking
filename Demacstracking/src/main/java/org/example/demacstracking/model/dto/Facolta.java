@@ -13,11 +13,10 @@ public class Facolta {
 
     public Facolta() {}
 
-    public Facolta(String nome, int durata, int cfu, String descrizione, String dipartimento, String lingua) {
+    public Facolta(String nome, int durata, int cfu, String dipartimento, String lingua) {
         this.nome = nome;
         this.durata = durata;
         this.cfu = cfu;
-        this.descrizione = descrizione;
         this.dipartimento = dipartimento;
         this.lingua = lingua;
     }
@@ -47,13 +46,6 @@ public class Facolta {
         this.cfu = cfu;
     }
 
-    public String getDescrizione() {
-        return descrizione;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
 
     public String getDipartimento() {
         return dipartimento;

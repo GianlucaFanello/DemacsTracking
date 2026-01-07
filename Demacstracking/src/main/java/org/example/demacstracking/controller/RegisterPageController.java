@@ -9,6 +9,7 @@ import org.example.demacstracking.model.dao.UtenteDao;
 import org.example.demacstracking.model.dto.Utente;
 import org.example.demacstracking.service.authService.PasswordService;
 import org.example.demacstracking.service.authService.RegistrazioneService;
+import org.example.demacstracking.service.utenteService.UtenteCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class RegisterPageController {
     }
 
     public void initialize(){
+
         errore.setVisible(false);
     }
 
@@ -61,6 +63,7 @@ public class RegisterPageController {
     }
 
     public void tastoOspite(MouseEvent mouseEvent) throws IOException {
+        UtenteCorrente.getInstance().setStatus("ospite");
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 

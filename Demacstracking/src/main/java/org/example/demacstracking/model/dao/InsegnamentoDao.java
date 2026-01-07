@@ -2,11 +2,14 @@ package org.example.demacstracking.model.dao;
 
 import org.example.demacstracking.model.db.DBManager;
 import org.example.demacstracking.model.dto.Insegnamento;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InsegnamentoDao {
 
@@ -18,7 +21,7 @@ public class InsegnamentoDao {
         try ( Connection connection = DBManager.getInstance().getConnection();
               PreparedStatement stmt = connection.prepareStatement(query);
         ){
-            stmt.setInt(1, insegnamento.getId());
+            stmt.setString(1, insegnamento.getId());
             stmt.setString(2, insegnamento.getNome());
             stmt.setInt(3, insegnamento.getCfu());
             stmt.setString(4, insegnamento.getDescrizione());
@@ -38,44 +41,122 @@ public class InsegnamentoDao {
             stmt.setInt(2, insegnamento.getCfu());
             stmt.setString(3, insegnamento.getDescrizione());
             stmt.setString(4, insegnamento.getDocente());
-            stmt.setInt(5, insegnamento.getId());
+            stmt.setString(5, insegnamento.getId());
 
             return stmt.executeUpdate() > 0;
         }
     }
 
-    public boolean eliminaInsegnamento(int id) throws SQLException{
-        String  query = "DELETE FROM insegnamento WHERE id=?";
+    public void eliminaInsegnamento(String id) throws SQLException{
 
-        try ( Connection connection = DBManager.getInstance().getConnection();
-              PreparedStatement stmt = connection.prepareStatement(query)
-        ) {
-            stmt.setInt(1, id);
+        try (Connection connection = DBManager.getInstance().getConnection()) {
+            String query = "DELETE FROM facolta_insegnamento WHERE insegnamento = ? AND facolta = ?";
 
-            return stmt.executeUpdate() > 0;
+            try (PreparedStatement ps = connection.prepareStatement(query)
+            ) {
+                ps.setString(1, id);
+                ps.setString(2, VisualizzazioneCorrente.getInstance().getFacoltaCorrente().getNome());
+                ps.executeUpdate();
+            }
+
+            String query1 = "DELETE FROM insegnamento WHERE id = ? AND NOT EXISTS (" +
+                    "SELECT 1 FROM facolta_insegnamento WHERE insegnamento = ? )";
+
+            // Cancella l'insegnamento solo se non ci sono più associazioni
+            try (PreparedStatement ps = connection.prepareStatement(query1)
+            ) {
+                ps.setString(1, id);
+                ps.setString(2, id);
+                ps.executeUpdate();
+            }
         }
     }
 
-    public Insegnamento prendiInsegnamentoId(int id) throws SQLException{
-        String  query = "SELECT * FROM insegnamento WHERE id=?";
+    public Insegnamento prendiInsegnamentoConId(Insegnamento insegnamento) throws SQLException{
+        String  query = "SELECT cfu,descrizione,docente FROM insegnamento WHERE id=?";
 
         try ( Connection connection = DBManager.getInstance().getConnection();
               PreparedStatement stmt = connection.prepareStatement(query)
 
         ) {
-            stmt.setInt(1, id);
+            stmt.setString(1, insegnamento.getId());
 
             ResultSet rs = stmt.executeQuery();
-            Insegnamento insegnamento = null ;
+
             if(rs.next()){
-                String nome = rs.getString("nome");
-                int cfu = rs.getInt("cfu");
                 String descrizione = rs.getString("descrizione");
                 String docente = rs.getString("docente");
+                int cfu = rs.getInt("cfu");
 
-                insegnamento = new Insegnamento(id,nome,cfu,descrizione,docente);
+                insegnamento.setDescrizione(descrizione);
+                insegnamento.setDocente(docente);
+                insegnamento.setCfu(cfu);
             }
             return insegnamento;
+        }
+    }
+
+    public List<Insegnamento> prendiAllInsegnamentoFacoltaPerAnno() throws SQLException{
+        String query = "SELECT i.id,i.nome FROM insegnamento i " +
+                "INNER JOIN facolta_insegnamento f ON i.id = f.insegnamento " +
+                "WHERE f.facolta = ? AND f.anno = ?";
+        List<Insegnamento> insegnamenti = new ArrayList<>();
+
+        try (Connection connection = DBManager.getInstance().getConnection();
+            PreparedStatement stmt = connection.prepareStatement(query)
+        ){
+            stmt.setString(1, VisualizzazioneCorrente.getInstance().getFacoltaCorrente().getNome());
+            stmt.setInt(2, VisualizzazioneCorrente.getInstance().getAnno());
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String nome = rs.getString("nome");
+
+                Insegnamento  insegnamento = new Insegnamento(id,nome);
+                insegnamenti.add(insegnamento);
+            }
+            return insegnamenti;
+        }
+    }
+
+    public boolean idPresente(String id) throws SQLException {
+        String query = "SELECT 1 FROM insegnamento WHERE id=?";
+
+        try ( Connection connection = DBManager.getInstance().getConnection();
+              PreparedStatement stmt = connection.prepareStatement(query)
+        ){
+            stmt.setString(1, id);
+
+            return stmt.executeQuery().next();
+        }
+    }
+
+    public boolean associazionePresente(String id, String nome) throws SQLException{
+        String query = "SELECT 1 FROM facolta_insegnamento WHERE insegnamento=? AND facolta=?";
+
+        try ( Connection connection = DBManager.getInstance().getConnection();
+              PreparedStatement stmt = connection.prepareStatement(query);
+        ) {
+            stmt.setString(1, id);
+            stmt.setString(2, nome);
+
+            return stmt.executeQuery().next();
+        }
+    }
+
+    public boolean inserisciAssociazione(Insegnamento insegnamento, String anno, String facolta) throws SQLException {
+        String query = "INSERT INTO facolta_insegnamento (facolta,insegnamento,anno) VALUES (?,?,?)";
+
+        try (Connection connection = DBManager.getInstance().getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)
+        ){
+            stmt.setString(1, facolta);
+            stmt.setString(2, insegnamento.getId());
+            stmt.setString(3, anno);
+
+            return stmt.executeUpdate() > 0;
         }
     }
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(to top, red, orange);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(to top, red, orange);" stylesheets="/org/example/demacstracking/css/insegnamentiPage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.InsegnamentiPageController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -21,7 +21,7 @@
     <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane gridLinesVisible="true" GridPane.rowIndex="1">
+      <GridPane GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="90.0" prefWidth="100.0" />
@@ -30,17 +30,17 @@
           <RowConstraints minHeight="10.0" percentHeight="100.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <ScrollPane fx:id="scrollFacolta" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <content>
-                  <VBox prefHeight="385.0" prefWidth="894.0" />
+                  <VBox fx:id="boxFacolta" alignment="TOP_CENTER" prefHeight="385.0" prefWidth="894.0" />
                </content>
             </ScrollPane>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="41.0" style="-fx-background-color: black; -fx-background-radius: 50px;" text="&lt;" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <Button mnemonicParsing="false" onMouseClicked="#tastoIndietro" prefHeight="40.0" prefWidth="41.0" style="-fx-background-color: black; -fx-background-radius: 50px;" text="&lt;" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
          </children>
       </GridPane>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="CENTER" onMouseClicked="#tastoLogout" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Label text="Facoltà">
+            <Label fx:id="facolta" text="Facoltà">
                <font>
                   <Font name="System Bold" size="57.0" />
                </font>
@@ -64,7 +64,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label text="0">
+                  <Label fx:id="anno" text="0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -79,7 +79,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black; -fx-background-radius: 50px;" text="ELIMINA" textFill="WHITE" GridPane.halignment="RIGHT">
+      <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#tastoLogout" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black; -fx-background-radius: 50px;" text="LOGOUT" textFill="WHITE" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </GridPane.margin>

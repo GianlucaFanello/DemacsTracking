@@ -1,0 +1,23 @@
+.buttonCubo{
+    -fx-background-color: black;
+    -fx-background-radius: 20px;
+    -fx-text-fill: white;
+    -fx-pref-width: 100;
+    -fx-pref-height: 40;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .content {
+    -fx-background-color: trasparent;
+}
+
+.btnGrid {
+    -fx-background-color: trasparent;
+}

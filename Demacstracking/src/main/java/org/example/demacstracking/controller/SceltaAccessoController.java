@@ -1,6 +1,7 @@
 package org.example.demacstracking.controller;
 
 import javafx.scene.input.MouseEvent;
+import org.example.demacstracking.service.utenteService.UtenteCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 
@@ -10,9 +11,10 @@ public class SceltaAccessoController {
 
     public void tastoOspite(MouseEvent mouseEvent) {
         try {
+            UtenteCorrente.getInstance().setStatus("ospite");
             SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
         } catch (IOException e) {
-
+            throw new RuntimeException(e);
         }
     }
 
@@ -20,7 +22,7 @@ public class SceltaAccessoController {
         try {
             SceneHandler.getInstance().sceneLoader("LoginPage.fxml");
         } catch (IOException e) {
-
+            throw new RuntimeException(e);
         }
     }
 
@@ -28,7 +30,7 @@ public class SceltaAccessoController {
         try {
             SceneHandler.getInstance().sceneLoader("RegisterPage.fxml");
         } catch (IOException e) {
-
+            throw new RuntimeException(e);
         }
 
     }
