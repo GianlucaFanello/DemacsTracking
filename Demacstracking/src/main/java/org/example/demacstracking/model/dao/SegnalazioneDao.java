@@ -15,12 +15,11 @@ public class SegnalazioneDao {
 
     // --- METODO PER INSERIRE UNA SEGNALAZIONE ---
     public boolean inserisciSegnalazione(Segnalazione segnalazione) throws SQLException {
-        String query = "INSERT INTO segnalazione (id,descrizione,utente,tipo) VALUES (?,?,?,?)";
+        String query = "INSERT INTO segnalazione (descrizione,utente,tipo) VALUES (?,?,?)";
 
         try (Connection connection = DBManager.getInstance().getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)
         ) {
-            stmt.setInt(1, segnalazione.getId());
             stmt.setString(2, segnalazione.getDescrizione());
             stmt.setString(3, segnalazione.getUtente());
             stmt.setString(4, segnalazione.getTipo());
@@ -60,7 +59,7 @@ public class SegnalazioneDao {
                     String utente = rs.getString("utente");
                     String tipo = rs.getString("tipo");
 
-                    segnalazione = new Segnalazione(id,descrizione,utente,tipo);
+                    segnalazione = new Segnalazione(descrizione,utente,tipo);
                 }
                 return segnalazione;
             }

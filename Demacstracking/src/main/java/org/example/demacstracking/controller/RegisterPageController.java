@@ -50,7 +50,7 @@ public class RegisterPageController {
         String password = campoPassword.getText();
 
         RegistrazioneService registrazioneService = new RegistrazioneService(utenteDao);
-        String result =registrazioneService.registrazione(nome,cognome,username,email,password);
+        String result = registrazioneService.registrazione(nome,cognome,username,email,password);
         if (result.equals("OK"))
             SceneHandler.getInstance().sceneLoader("LoginPage.fxml");
         else
