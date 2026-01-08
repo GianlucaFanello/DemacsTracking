@@ -3,6 +3,7 @@ package org.example.demacstracking.model.dto.strutture;
 public class Distributore extends Struttura {
     public int id;
     public Distributore() {}
+
     public Distributore(int id,String ubicazione,  String cubo) {
         this.id = id;
         this.ubicazione = ubicazione;

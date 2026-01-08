@@ -118,7 +118,8 @@ public class InterniFacoltaController {
 
     public void tastoLogout(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().logout();
-        SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
+        VisualizzazioneCorrente.getInstance().reset();
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
     public void tastoIndietro(MouseEvent mouseEvent) throws IOException {

@@ -64,9 +64,12 @@ public class ModificaFacoltaController {
         int _durata = Integer.parseInt(durata.getText());
         String _lingua = lingua.getText();
 
-        if(!facoltaDao.modificaFacolta(new Facolta(_nome,_durata,_cfu,facolta.getDipartimento(),_lingua)) )
+        Facolta _facolta = new Facolta(_nome,_durata,_cfu,facolta.getDipartimento(),_lingua);
+
+        if(!facoltaDao.modificaFacolta(_facolta) )
             showError();
 
+        VisualizzazioneCorrente.getInstance().setFacoltaCorrente(_facolta);
         SceneHandler.getInstance().sceneLoader("InterniFacolta.fxml");
     }
 

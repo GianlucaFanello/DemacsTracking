@@ -51,16 +51,22 @@ public class SceltaFacoltaPageController {
     }
 
     public void tastoHome(MouseEvent mouseEvent) throws IOException {
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 
     public void tastoElimina(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
-
     }
 
     public void tastoAggiungi(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("AggiungiFacolta.fxml");
+    }
+
+    public void tastoLogout(MouseEvent mouseEvent) throws IOException {
+        UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
     private void creaGrigliaFacolta() throws SQLException {

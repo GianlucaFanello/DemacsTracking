@@ -72,7 +72,7 @@ public class InsegnamentiPageController {
     public void tastoLogout(MouseEvent event) throws IOException {
         VisualizzazioneCorrente.getInstance().reset();
         UtenteCorrente.getInstance().logout();
-        SceneHandler.getInstance().sceneLoader("SceltaAccesso");
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
 }

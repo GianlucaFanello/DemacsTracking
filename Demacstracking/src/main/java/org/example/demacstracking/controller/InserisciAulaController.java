@@ -1,52 +1,67 @@
 package org.example.demacstracking.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.AulaHandler;
-import org.example.demacstracking.model.dto.strutture.Aula;
+import org.example.demacstracking.model.dao.AulaDao;
+import org.example.demacstracking.service.utenteService.UtenteCorrente;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class InserisciAulaController {
-    @FXML
-    public TextField nome;
-    @FXML
-    public TextField ubicazione;
-    @FXML
-    public TextField capienza;
-    @FXML
-    public TextField cubo;
-    @FXML
-    public Label messaggioDiRiuscita;
 
-    public void tastoIndietro(KeyEvent keyEvent) throws IOException {
-        if(keyEvent.getCode() == KeyCode.ESCAPE) {
-            SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
-        }
+   @FXML
+    public TextArea attrezzatura;
+    @FXML
+    private TextField nome;
+    @FXML
+    private TextField ubicazione;
+    @FXML
+    private TextField capienza;
+    @FXML
+    private Label errore;
 
+    private final AulaDao  aulaDao =  new AulaDao();
+
+    public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
     }
 
     public void tastoLogOut(MouseEvent mouseEvent) throws IOException {
+        UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
 
     public void tastoInvia(MouseEvent mouseEvent) throws SQLException, IOException {
-        if(!nome.getText().equals("") && !ubicazione.getText().equals("") && !capienza.getText().equals("") && !cubo.getText().equals("")) {
-            AulaHandler.getInstance().init(nome.getText(), ubicazione.getText(), Integer.parseInt(capienza.getText()), cubo.getText());
-            messaggioDiRiuscita.setVisible(true);
-            SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+        String _nome = nome.getText().trim();
+        String _ubicazione = ubicazione.getText().trim();
+        String _capienza = capienza.getText().trim();
+        String descrizione = attrezzatura.getText().trim();
+
+        if(_nome.isEmpty() || _ubicazione.isEmpty() || _capienza.isEmpty() || descrizione.isEmpty()) {
+            showError("Compila tutti i campi!");
         }
-        else {
-            messaggioDiRiuscita.setText("Si è verificato un errore!");
-            messaggioDiRiuscita.setVisible(true);
+
+        String cubo = VisualizzazioneCorrente.getInstance().getCuboCorrente().getNome();
+
+        if(aulaDao.aulaPresente(_nome, cubo)) {
+            showError("Aula già presente!");
         }
+
+        AulaHandler.getInstance().init(nome.getText(), ubicazione.getText(), Integer.parseInt(capienza.getText()), cubo, descrizione);
+        SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+    }
+
+    private void showError(String s) {
+        errore.setText(s);
+        errore.setVisible(true);
     }
 }

@@ -1,17 +1,19 @@
 package org.example.demacstracking.model.dto.strutture;
 
 public class Aula extends Struttura {
-    public String nome;
-    public int capienza;
+    private String nome;
+    private int capienza;
+    private String descrizione;
 
     public Aula() {}
-    public Aula(String nome, String ubicazione, int capienza, String cubo) {
-        this.nome = nome;
-        this.ubicazione = ubicazione;
-        this.capienza = capienza;
-        this.cubo = cubo;
-    }
 
+    public Aula(String cubo, String ubicazione, String nome, int capienza, String descrizione) {
+        this.cubo = cubo;
+        this.ubicazione = ubicazione;
+        this.nome = nome;
+        this.capienza = capienza;
+        this.descrizione = descrizione;
+    }
 
     public String getNome() {
         return nome;
@@ -27,5 +29,13 @@ public class Aula extends Struttura {
 
     public void setCapienza(int capienza) {
         this.capienza = capienza;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 }

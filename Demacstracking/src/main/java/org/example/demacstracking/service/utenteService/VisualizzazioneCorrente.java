@@ -3,6 +3,7 @@ package org.example.demacstracking.service.utenteService;
 import org.example.demacstracking.model.dto.Cubo;
 import org.example.demacstracking.model.dto.Facolta;
 import org.example.demacstracking.model.dto.Insegnamento;
+import org.example.demacstracking.model.dto.strutture.Struttura;
 
 public class VisualizzazioneCorrente {
 
@@ -16,10 +17,23 @@ public class VisualizzazioneCorrente {
 
     private int anno ;
 
+    private Struttura struttura;
+
     private VisualizzazioneCorrente() {}
 
     public static VisualizzazioneCorrente getInstance() {
         return visualizzazioneCorrente;
+    }
+
+
+    public Struttura getStruttura() {
+        return struttura;
+    }
+    public void setStruttura(Struttura struttura) {
+        this.struttura = struttura;
+    }
+    public void resetStruttura(){
+        this.struttura = null;
     }
 
     public int getAnno() {

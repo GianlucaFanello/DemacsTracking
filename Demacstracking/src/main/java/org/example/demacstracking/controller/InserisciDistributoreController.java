@@ -7,6 +7,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.DistributoreHandler;
+import org.example.demacstracking.service.utenteService.UtenteCorrente;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -14,36 +16,40 @@ import java.sql.SQLException;
 
 public class InserisciDistributoreController {
     @FXML
-    public TextField cubo;
-    @FXML
     public TextField ubicazione;
     @FXML
-    public Label messaggioDiRiuscita;
-    @FXML
-    public TextField id;
+    public Label errore;
 
-    public void tastoIndietro(KeyEvent keyEvent) throws IOException {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
-            SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
-
-        }
-
+    public void initialize(){
+        errore.setVisible(false);
     }
+
 
     public void tastoInvia(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!id.getText().equals("") && !ubicazione.getText().equals("") && !cubo.getText().equals("")) {
-            DistributoreHandler.getInstance().init(Integer.parseInt(id.getText()),ubicazione.getText(),cubo.getText());
-            messaggioDiRiuscita.setVisible(true);
-            SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
 
+        String _ubicazione = ubicazione.getText().trim();
+        String _cubo = VisualizzazioneCorrente.getInstance().getCuboCorrente().getNome();
+        if(_ubicazione.isEmpty()) {
+            showError("Compila tutti i campi");
+            return;
         }
+
+        DistributoreHandler.getInstance().init(_ubicazione,_cubo);
+        SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
     }
 
-    public void tastoLogOut(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("HomePageDemacsTracking.fxml");
-
-
+    private void showError(String s) {
+        errore.setText(s);
+        errore.setVisible(true);
     }
 
+    public void tastoLogout(MouseEvent mouseEvent) throws IOException {
+        UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
+    }
 
+    public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+    }
 }

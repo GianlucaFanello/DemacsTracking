@@ -3,22 +3,18 @@ package org.example.demacstracking.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import org.example.demacstracking.model.dao.FacoltaDao;
-import org.example.demacstracking.model.dto.Facolta;
+import org.example.demacstracking.model.dao.CuboDao;
+import org.example.demacstracking.model.dto.Cubo;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
-import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
-import org.springframework.beans.factory.support.ScopeNotActiveException;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class EliminaFacoltaController {
+public class EliminaCuboController {
 
     @FXML
     private Button precedente;
@@ -58,9 +54,9 @@ public class EliminaFacoltaController {
 
 
     private int indiceCorrente = 0;
-    private List<Facolta> allFacolta;
+    private List<Cubo> allCubo;
 
-    private final FacoltaDao facoltaDao = new FacoltaDao();
+    private final CuboDao cuboDao = new CuboDao();
 
     public void initialize() throws SQLException {
         errore.setVisible(false);
@@ -69,11 +65,11 @@ public class EliminaFacoltaController {
         nomeList = new Label[]{nome1, nome2, nome3};
         panelist = new Pane[] {pane1,pane2,pane3};
 
-        allFacolta = facoltaDao.getAllFacolta();
+        allCubo = cuboDao.getAllCubi();
         mostraCardFacolta();
     }
 
-    public EliminaFacoltaController() throws SQLException {
+    public EliminaCuboController() throws SQLException {
     }
 
     public void tastoLogout(MouseEvent mouseEvent) throws IOException {
@@ -82,25 +78,25 @@ public class EliminaFacoltaController {
     }
 
     public void  eliminaUno(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!facoltaDao.eliminaFacolta(nome1.getText()))
+        if(!cuboDao.eliminaCubo(nome1.getText()))
             showError();
-        SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
+        SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
     public void eliminaDue(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!facoltaDao.eliminaFacolta(nome2.getText()))
+        if(!cuboDao.eliminaCubo(nome2.getText()))
             showError();
-        SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
+        SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
     public void eliminaTre(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!facoltaDao.eliminaFacolta(nome3.getText()))
+        if(!cuboDao.eliminaCubo(nome3.getText()))
             showError();
-        SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
+        SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
     public void tastoSuccessivo(MouseEvent mouseEvent) throws SQLException {
-        if (indiceCorrente < allFacolta.size()) {
+        if (indiceCorrente < allCubo.size()) {
             indiceCorrente += 3;
             mostraCardFacolta();
         }
@@ -121,15 +117,15 @@ public class EliminaFacoltaController {
     public void mostraCardFacolta() throws SQLException {
         precedente.setVisible(indiceCorrente != 0);
 
-        successivo.setVisible(indiceCorrente + 3 < allFacolta.size());
+        successivo.setVisible(indiceCorrente + 3 < allCubo.size());
 
-        int indiceFinale = Math.min(indiceCorrente + 3, allFacolta.size());
+        int indiceFinale = Math.min(indiceCorrente + 3, allCubo.size());
 
         for (int i = 0; i < 3; i++) {
             if (indiceCorrente + i < indiceFinale) {
                 panelist[i].setVisible(true);
                 nomeList[i].setVisible(true);
-                nomeList[i].setText(allFacolta.get(indiceCorrente + i).getNome());
+                nomeList[i].setText(allCubo.get(indiceCorrente + i).getNome());
                 buttonList[i].setVisible(true);
 
             } else {
@@ -141,7 +137,6 @@ public class EliminaFacoltaController {
     }
 
     public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("SceltaFacoltaPage.fxml");
+        SceneHandler.getInstance().sceneLoader("SceltaCubo.fxml");
     }
 }
-

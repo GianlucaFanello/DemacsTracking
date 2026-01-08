@@ -99,7 +99,6 @@ public class FacoltaDao {
                 String nome = rs.getString("nome");
                 int durata = rs.getInt("durata");
                 int cfu = rs.getInt("cfu");
-                String descrizione = rs.getString("descrizione");
                 String dipartimento = rs.getString("dipartimento");
                 String lingua = rs.getString("lingua");
 

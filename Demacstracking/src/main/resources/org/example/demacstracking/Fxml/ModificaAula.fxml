@@ -3,7 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(to top, red ,orange);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top, red ,orange);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.ModificaAulaController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -22,9 +24,9 @@
    <children>
       <GridPane GridPane.rowIndex="1">
          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,12 +39,11 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="bottoneInvia" mnemonicParsing="false" onMouseClicked="#tastoInvia" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: black; -fx-background-radius: 50px; -fx-padding: 10px;" text="INVIA" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button fx:id="bottoneInvia" mnemonicParsing="false" onMouseClicked="#tastoInvia" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: black; -fx-background-radius: 50px; -fx-padding: 10px;" text="INVIA" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="nome" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -51,7 +52,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="attrezzatura" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attrezzatura:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />
@@ -60,8 +60,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="ubicazione" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicazione:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+            <TextField fx:id="ubicazione" maxHeight="-Infinity" maxWidth="350.0" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ubicazione:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -69,16 +69,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="cubo" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cubo:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
-            <TextField fx:id="capienza" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="capienza" maxWidth="350.0" prefHeight="26.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Capienza:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -87,16 +78,22 @@
                   <Insets right="10.0" />
                </GridPane.margin>
             </Text>
-            <Label fx:id="messaggioDiRiuscita" text="Aula inserita con successo!" textFill="#26ff00" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Button fx:id="bottoneInvia1" mnemonicParsing="false" onMouseClicked="#tastoInvia" prefHeight="42.0" prefWidth="170.0" style="-fx-background-color: black; -fx-background-radius: 50px; -fx-padding: 10px;" text="ANNULLA" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+            <Button fx:id="buttonAnnulla" mnemonicParsing="false" onMouseClicked="#tastoAnnulla" prefHeight="42.0" prefWidth="170.0" style="-fx-background-color: black; -fx-background-radius: 50px; -fx-padding: 10px;" text="ANNULLA" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
+            <TextArea fx:id="descrizione" maxWidth="350.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label fx:id="errore" text="Errore nella modifica" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="nome" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
       <Label prefHeight="66.0" prefWidth="289.0" text="MODIFICA AULA" GridPane.halignment="CENTER">
@@ -104,7 +101,7 @@
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
-      <Button fx:id="logOut" mnemonicParsing="false" onMouseClicked="#tastoLogOut" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT">
+      <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#tastoLogout" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -112,6 +109,10 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" />
+      <ImageView fitHeight="140.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" onMouseClicked="#tastoHome">
+          <image>
+              <Image url="@../foto/DemacsTracking.png" />
+          </image>
+      </ImageView>
    </children>
 </GridPane>

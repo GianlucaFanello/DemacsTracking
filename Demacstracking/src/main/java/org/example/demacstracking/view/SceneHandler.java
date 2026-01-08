@@ -20,7 +20,7 @@ public class SceneHandler {
     }
 
     URL loadResource(String name) {
-        return SceneHandler.class.getResource("/org/example/demacstracking/fxml/" + name);
+        return SceneHandler.class.getResource("/org/example/demacstracking/Fxml/" + name);
     }
 
     public void sceneLoader(String fxmlFile) throws IOException {
