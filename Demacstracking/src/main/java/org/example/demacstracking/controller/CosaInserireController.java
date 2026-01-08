@@ -1,8 +1,5 @@
 package org.example.demacstracking.controller;
 
-
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.AulaHandler;
 import org.example.demacstracking.model.DistributoreHandler;

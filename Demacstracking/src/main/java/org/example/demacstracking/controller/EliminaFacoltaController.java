@@ -78,24 +78,30 @@ public class EliminaFacoltaController {
 
     public void tastoLogout(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
     public void  eliminaUno(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!facoltaDao.eliminaFacolta(nome1.getText()))
+        if(!facoltaDao.eliminaFacolta(nome1.getText())) {
             showError();
+            return;
+        }
         SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
     }
 
     public void eliminaDue(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!facoltaDao.eliminaFacolta(nome2.getText()))
+        if(!facoltaDao.eliminaFacolta(nome2.getText())) {
             showError();
+            return;
+        }
         SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
     }
 
     public void eliminaTre(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!facoltaDao.eliminaFacolta(nome3.getText()))
+        if(!facoltaDao.eliminaFacolta(nome3.getText())) {
             showError();
+        }
         SceneHandler.getInstance().sceneLoader("EliminaFacolta.fxml");
     }
 

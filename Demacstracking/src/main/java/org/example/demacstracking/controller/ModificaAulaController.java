@@ -75,10 +75,10 @@ public class ModificaAulaController {
         Aula aula = new Aula(_cubo,_ubicazione,_nome,Integer.parseInt(_capienza),_descrizione);
 
         if(!aulaDao.modificaAula(aula)) {
-            VisualizzazioneCorrente.getInstance().resetStruttura();
             errore.setVisible(true);
+            return ;
         }
-
+        VisualizzazioneCorrente.getInstance().resetStruttura();
         SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
     }
 
