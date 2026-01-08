@@ -9,8 +9,7 @@ public class Segnalazione {
 
     public Segnalazione() {}
 
-    public Segnalazione(int id, String descrizione, String utente, String tipo) {
-        this.id = id;
+    public Segnalazione(String descrizione, String utente, String tipo) {
         this.descrizione = descrizione;
         this.utente = utente;
         this.tipo = tipo;
