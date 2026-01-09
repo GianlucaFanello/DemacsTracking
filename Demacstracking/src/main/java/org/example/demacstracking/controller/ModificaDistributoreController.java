@@ -85,4 +85,8 @@ public class ModificaDistributoreController {
         UtenteCorrente.getInstance().logout();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+    }
 }

@@ -97,6 +97,14 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button fx:id="indietro" mnemonicParsing="false" onMouseClicked="#tastoIndietro" style="-fx-background-color: black; -fx-background-radius: 50px;" text="&lt;" textFill="WHITE" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="40.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
       <Label prefHeight="66.0" prefWidth="289.0" text="MODIFICA AULA" GridPane.halignment="CENTER">

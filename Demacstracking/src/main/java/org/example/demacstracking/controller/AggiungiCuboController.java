@@ -71,4 +71,10 @@ public class AggiungiCuboController {
     public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("SceltaCubo.fxml");
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("SceltaCubo.fxml");
+
+
+    }
 }

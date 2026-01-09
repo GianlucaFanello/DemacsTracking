@@ -1,6 +1,7 @@
 package org.example.demacstracking.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -95,6 +96,10 @@ public class AggiungiInsegnamentoController {
     }
 
     public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("InterniFacolta.fxml");
+    }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("InterniFacolta.fxml");
     }
 }

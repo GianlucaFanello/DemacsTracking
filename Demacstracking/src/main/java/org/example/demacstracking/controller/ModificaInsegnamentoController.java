@@ -115,6 +115,12 @@ public class ModificaInsegnamentoController {
     void tastoLogOut(MouseEvent event) throws IOException {
         VisualizzazioneCorrente.getInstance().reset();
         UtenteCorrente.getInstance().logout();
-        SceneHandler.getInstance().sceneLoader("SceltaAccesso");
+        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
+    }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("Insegnamento.fxml");
+
+
     }
 }

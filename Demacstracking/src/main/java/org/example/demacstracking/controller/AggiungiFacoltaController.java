@@ -82,4 +82,8 @@ public class AggiungiFacoltaController {
         errore.setText(s);
         errore.setVisible(true);
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("SceltaFacoltaPage.fxml");
+    }
 }

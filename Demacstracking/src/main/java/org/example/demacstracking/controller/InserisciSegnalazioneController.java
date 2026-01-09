@@ -39,4 +39,9 @@ public class InserisciSegnalazioneController {
         segnalazioneDao.inserisciSegnalazione(segnalazione);
         messaggioDiRiuscita.setVisible(true);
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CosaSegnalare.fxml");
+
+    }
 }

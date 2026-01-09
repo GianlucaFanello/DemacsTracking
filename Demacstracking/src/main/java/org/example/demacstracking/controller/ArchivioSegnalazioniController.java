@@ -5,7 +5,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.dao.SegnalazioneDao;
 import org.example.demacstracking.model.dto.Segnalazione;
+import org.example.demacstracking.view.SceneHandler;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -122,4 +124,11 @@ public class ArchivioSegnalazioniController {
     public void tastoElimina5(MouseEvent mouseEvent) {
         eliminaSegnalazioneIndice(4);
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
+    }
+
+
+
 }
