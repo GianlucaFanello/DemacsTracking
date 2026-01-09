@@ -1,7 +1,5 @@
 package org.example.demacstracking.controller;
 
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.tipoSegnalazioneHandler;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
@@ -31,7 +29,7 @@ public class CosaSegnalareController {
 
     }
 
-    public void tastoIndietro(KeyEvent keyEvent) throws IOException {
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
 
     }
