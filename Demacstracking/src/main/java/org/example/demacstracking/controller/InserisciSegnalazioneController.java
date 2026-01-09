@@ -41,7 +41,7 @@ public class InserisciSegnalazioneController {
     }
 
     public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
+        SceneHandler.getInstance().sceneLoader("CosaSegnalare.fxml");
 
     }
 }
