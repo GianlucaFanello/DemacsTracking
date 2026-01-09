@@ -1,6 +1,8 @@
 package org.example.demacstracking.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.dao.SegnalazioneDao;
@@ -9,9 +11,33 @@ import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArchivioSegnalazioniController {
+    @FXML
+    public Label numero0;
+    @FXML
+    public Label numero1;
+    @FXML
+    public Label numero2;
+    @FXML
+    public Label numero3;
+    @FXML
+    public Label numero4;
+
+    @FXML
+    public Button elimina0;
+    @FXML
+    public Button elimina1;
+    @FXML
+    public Button elimina2;
+    @FXML
+    public Button elimina3;
+    @FXML
+    public Button elimina4;
+
+
 
     @FXML
     private TextArea num1;
@@ -24,17 +50,23 @@ public class ArchivioSegnalazioniController {
     @FXML
     private TextArea num5;
 
+
+
     private static final int pagine = 5;
     private List<Segnalazione> segnalazioniCorrenti;
 
     private int offset = 0;
 
     private List<TextArea> textAreas;
+    private List<Label> labels;
+    private List<Button> buttons;
 
     private final SegnalazioneDao segnalazioneDao = new SegnalazioneDao();
 
     public void initialize() {
         textAreas = List.of(num1, num2, num3, num4, num5);
+        labels = List.of(numero0,numero1,numero2,numero3,numero4);
+        buttons = List.of(elimina0,elimina1,elimina2,elimina3,elimina4);
 
         try {
             caricaPagina();
@@ -54,10 +86,18 @@ public class ArchivioSegnalazioniController {
                 textAreas.get(i).setText(segnalazioniCorrenti.get(i).getDescrizione());
                 textAreas.get(i).setDisable(false);
                 textAreas.get(i).setVisible(true);
+
+                labels.get(i).setVisible(true);
+                buttons.get(i).setVisible(true);
+                buttons.get(i).setDisable(false);
             } else {
                 textAreas.get(i).clear();
                 textAreas.get(i).setDisable(true);
                 textAreas.get(i).setVisible(false);
+
+                labels.get(i).setVisible(false);
+                buttons.get(i).setVisible(false);
+                buttons.get(i).setDisable(true);
             }
         }
     }
