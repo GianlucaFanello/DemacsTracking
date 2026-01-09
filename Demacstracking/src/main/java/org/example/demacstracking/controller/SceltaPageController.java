@@ -43,7 +43,7 @@ public class SceltaPageController {
     }
 
     public void tastoSegnala(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("InserisciSegnalazione.fxml");
+        SceneHandler.getInstance().sceneLoader("CosaSegnalare.fxml");
 
     }
 

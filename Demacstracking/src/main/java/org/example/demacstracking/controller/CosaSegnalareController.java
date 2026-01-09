@@ -13,13 +13,13 @@ import java.sql.SQLException;
 public class CosaSegnalareController {
     public void tastoCubo(MouseEvent mouseEvent) throws IOException, SQLException {
         tipoSegnalazioneHandler.getInstance().init("Cubo");
-        SceneHandler.getInstance().sceneLoader("inserisciSegnalazione");
+        SceneHandler.getInstance().sceneLoader("inserisciSegnalazione.fxml");
 
     }
 
     public void tastoFacoltà(MouseEvent mouseEvent) throws IOException, SQLException {
         tipoSegnalazioneHandler.getInstance().init("Facolta");
-        SceneHandler.getInstance().sceneLoader("inserisciSegnalazione");
+        SceneHandler.getInstance().sceneLoader("inserisciSegnalazione.fxml");
     }
 
     public void tastoLogOut(MouseEvent mouseEvent) throws IOException {

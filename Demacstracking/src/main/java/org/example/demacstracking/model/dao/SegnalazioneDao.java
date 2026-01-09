@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SegnalazioneDao {
 
@@ -20,9 +22,9 @@ public class SegnalazioneDao {
         try (Connection connection = DBManager.getInstance().getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)
         ) {
-            stmt.setString(2, segnalazione.getDescrizione());
-            stmt.setString(3, segnalazione.getUtente());
-            stmt.setString(4, segnalazione.getTipo());
+            stmt.setString(1, segnalazione.getDescrizione());
+            stmt.setString(2, segnalazione.getUtente());
+            stmt.setString(3, segnalazione.getTipo());
 
             return stmt.executeUpdate() > 0;
         }
@@ -41,27 +43,33 @@ public class SegnalazioneDao {
         }
     }
 
-    // --- METODO PER PRENDE UNA SEGNALAZIONE DALLA SUA PRIMARY KEY
-        public Segnalazione  prendiSegnalazioneId(int id) throws SQLException {
-            String query = "SELECT * FROM segnalazione WHERE id=?";
 
-            try (Connection connection = DBManager.getInstance().getConnection();
-                 PreparedStatement stmt = connection.prepareStatement(query);
-            ) {
-                stmt.setInt(1, id);
 
-                ResultSet rs = stmt.executeQuery();
-                Segnalazione segnalazione  = null ;
+    public List<Segnalazione> prendiSegnalazioni(int limit, int offset) throws SQLException {
 
-                if(rs.next()) {
+        String query = "SELECT * FROM segnalazione ORDER BY id LIMIT ? OFFSET ?";
 
-                    String descrizione = rs.getString("descrizione");
-                    String utente = rs.getString("utente");
-                    String tipo = rs.getString("tipo");
+        List<Segnalazione> lista = new ArrayList<>();
 
-                    segnalazione = new Segnalazione(descrizione,utente,tipo);
-                }
-                return segnalazione;
+        try (Connection conn = DBManager.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, limit);
+            stmt.setInt(2, offset);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Segnalazione s = new Segnalazione(
+                        rs.getString("descrizione"),
+                        rs.getString("utente"),
+                        rs.getString("tipo")
+                );
+                s.setId(rs.getInt("id"));
+                lista.add(s);
             }
         }
+        return lista;
+    }
+
 }
