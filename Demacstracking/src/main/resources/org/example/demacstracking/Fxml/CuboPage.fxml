@@ -54,7 +54,7 @@
                            </content></ScrollPane>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="163.0" fitWidth="307.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                  <ImageView fitHeight="163.0" fitWidth="307.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" onMouseClicked="#tastoHome">
                      <image>
                         <Image url="@../foto/DemacsTracking.png" />
                      </image>

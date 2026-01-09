@@ -88,10 +88,18 @@ public class ModificaInsegnamentoController {
         String _docente = docente.getText();
         String _anno = anno.getText();
 
+
+        if(_nome.isEmpty() || _cfu.isEmpty() || _descrizione.isEmpty() || _docente.isEmpty() || _anno.isEmpty()) {
+            errore.setText("Inserisci tutti i campi!");
+            errore.setVisible(true);
+            return;
+        }
+
         insegnamento.setNome(_nome);
         insegnamento.setCfu(Integer.parseInt(_cfu));
         insegnamento.setDocente(_docente);
         insegnamento.setDescrizione(_descrizione);
+
 
         if(!insegnamentoDao.modificaInsegnamento(insegnamento) ||
                 !insegnamentoDao.modificaAssociazione(Integer.parseInt(_anno))){
