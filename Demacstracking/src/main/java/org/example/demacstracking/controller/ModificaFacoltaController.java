@@ -88,4 +88,8 @@ public class ModificaFacoltaController {
     public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("InterniFacolta.fxml");
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("InterniFacolta.fxml");
+    }
 }

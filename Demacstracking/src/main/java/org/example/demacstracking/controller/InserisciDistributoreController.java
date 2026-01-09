@@ -52,4 +52,9 @@ public class InserisciDistributoreController {
     public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
+
+    }
 }

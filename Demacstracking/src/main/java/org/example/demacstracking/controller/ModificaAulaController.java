@@ -93,4 +93,8 @@ public class ModificaAulaController {
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
+
+    }
 }

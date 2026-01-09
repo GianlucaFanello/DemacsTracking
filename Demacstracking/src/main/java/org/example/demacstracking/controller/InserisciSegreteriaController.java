@@ -55,4 +55,9 @@ public class InserisciSegreteriaController {
         VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
+
+    public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("CosaInserire.fxml");
+
+    }
 }

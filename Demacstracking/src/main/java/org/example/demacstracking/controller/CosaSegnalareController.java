@@ -31,10 +31,8 @@ public class CosaSegnalareController {
 
     }
 
-    public void tastoIndietro(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.BACK_SPACE) {
-
-        }
+    public void tastoIndietro(KeyEvent keyEvent) throws IOException {
+        SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
 
     }
 }
