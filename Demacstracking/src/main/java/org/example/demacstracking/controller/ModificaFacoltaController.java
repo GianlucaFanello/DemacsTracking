@@ -60,11 +60,21 @@ public class ModificaFacoltaController {
 
     public void tastoInvia(MouseEvent mouseEvent) throws SQLException, IOException {
         String _nome = nome.getText();
-        int _cfu = Integer.parseInt(cfu.getText());
-        int _durata = Integer.parseInt(durata.getText());
+        String _cfu = cfu.getText();
+        String _durata = durata.getText();
         String _lingua = lingua.getText();
 
-        Facolta _facolta = new Facolta(_nome,_durata,_cfu,facolta.getDipartimento(),_lingua);
+
+
+        if(_nome.isEmpty() || _cfu.isEmpty() || _durata.isEmpty() || _lingua.isEmpty()){
+            showError();
+            return;
+        }
+
+        int __cfu = Integer.parseInt(_cfu) ;
+        int __durata = Integer.parseInt(_durata);
+
+        Facolta _facolta = new Facolta(_nome,__durata,__cfu,facolta.getDipartimento(),_lingua);
 
         if(!facoltaDao.modificaFacolta(_facolta) ) {
             showError();

@@ -45,6 +45,17 @@ public class DistributoreDao {
         }
     }
 
+    public void eliminaDistributoreByCubo(String cubo) throws SQLException {
+        String query = "DELETE FROM distributore WHERE cubo=?";
+
+        try ( Connection connection = DBManager.getInstance().getConnection();
+        PreparedStatement stmt = connection.prepareStatement(query);
+        ){
+            stmt.setString(1, cubo);
+            stmt.executeUpdate();
+        }
+    }
+
     // --- MODIFICA DISTRIBUTORE ---
     public boolean modificaDistributore(Distributore distributore) throws SQLException {
         String query = "UPDATE distributore SET  ubicazione=? WHERE id=? AND cubo=?";

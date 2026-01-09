@@ -32,7 +32,15 @@
          <children>
             <ScrollPane fx:id="scrollFacolta" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <content>
-                  <VBox fx:id="boxFacolta" alignment="TOP_CENTER" prefHeight="385.0" prefWidth="894.0" />
+                  <VBox fx:id="boxFacolta" alignment="TOP_CENTER" prefHeight="385.0" prefWidth="894.0">
+                     <children>
+                        <Label fx:id="errore" text="Nessuna insegnamento disponibile">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                </content>
             </ScrollPane>
             <Button mnemonicParsing="false" onMouseClicked="#tastoIndietro" prefHeight="40.0" prefWidth="41.0" style="-fx-background-color: black; -fx-background-radius: 50px;" text="&lt;" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="TOP" />

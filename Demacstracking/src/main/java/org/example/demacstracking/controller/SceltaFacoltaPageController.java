@@ -2,6 +2,7 @@ package org.example.demacstracking.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -28,6 +29,8 @@ public class SceltaFacoltaPageController {
     private ScrollPane  scrollPane;
     @FXML
     private GridPane btnGrid;
+    @FXML
+    private Label errore;
 
     private final FacoltaDao facoltaDao = new FacoltaDao();
 
@@ -35,6 +38,8 @@ public class SceltaFacoltaPageController {
     }
 
     public void initialize() throws SQLException {
+        errore.setVisible(false);
+        errore.setManaged(false);
         configuraStrategy();
         creaGrigliaFacolta();
     }
@@ -76,6 +81,12 @@ public class SceltaFacoltaPageController {
         scrollPane.setFitToWidth(true);
 
         List<Facolta> allFacolta = facoltaDao.getAllFacolta();
+
+        if (allFacolta.isEmpty()) {
+            errore.setVisible(true);
+            errore.setManaged(true);
+            return ;
+        }
 
         int col = 0, row = 0;
         for (Facolta f : allFacolta) {

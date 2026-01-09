@@ -35,12 +35,18 @@ public class InsegnamentiPageController {
     @FXML
     private ScrollPane scrollFacolta;
 
+    @FXML
+    private Label errore ;
+
     private final InsegnamentoDao insegnamentoDao = new InsegnamentoDao();
 
     private List<Insegnamento> insegnamentoList;
 
     public void initialize() throws IOException, SQLException {
         insegnamentoList = insegnamentoDao.prendiAllInsegnamentoFacoltaPerAnno();
+
+        errore.setVisible(insegnamentoList.isEmpty());
+        errore.setManaged(insegnamentoList.isEmpty());
 
         inserisciCard();
         int _anno = VisualizzazioneCorrente.getInstance().getAnno();

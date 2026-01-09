@@ -45,6 +45,17 @@ public class SegreteriaDao {
         }
     }
 
+    public void eliminaSegreteriaByCubo(String cubo) throws SQLException {
+        String query = "DELETE FROM segreteria WHERE cubo=?";
+
+        try ( Connection connection = DBManager.getInstance().getConnection();
+        PreparedStatement stmt = connection.prepareStatement(query);
+        ){
+            stmt.setString(1, cubo);
+            stmt.executeUpdate();
+        }
+    }
+
 
     // --- MODIFICA SEGRETERIA ---
     public boolean modificaSegreteria(Segreteria segreteria) throws SQLException {

@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top, red, orange);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demacstracking.controller.EliminaFacoltaController">
@@ -55,61 +56,6 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <children>
-                  <Pane fx:id="pane1" maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-width: 3px;" HBox.hgrow="NEVER">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <children>
-                        <Button fx:id="elimina1" layoutX="80.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#eliminaUno" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="x" textFill="RED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Label fx:id="nome1" layoutX="41.0" layoutY="47.0" text="FACOLTA1">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane2" maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-width: 3px;">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <children>
-                        <Button fx:id="elimina2" layoutX="77.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#eliminaDue" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="x" textFill="RED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Label fx:id="nome2" layoutX="38.0" layoutY="46.0" text="FACOLTA2">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane3" maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-width: 3px;">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <children>
-                        <Button fx:id="elimina3" layoutX="80.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#eliminaTre" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="x" textFill="RED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Label fx:id="nome3" layoutX="53.0" layoutY="46.0" text="FACOLTA3">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </HBox>
             <Button fx:id="indietro" mnemonicParsing="false" onMouseClicked="#tastoIndietro" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: black; -fx-background-radius: 50px;" text="&lt;" textFill="WHITE" GridPane.valignment="TOP">
                <font>
                   <Font name="System Bold" size="25.0" />
@@ -120,6 +66,70 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Label fx:id="erroreNoFacolta" text="Nessuna facoltà disponibile">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="238.0" prefWidth="779.0">
+                     <children>
+                        <Pane fx:id="pane1" maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-width: 3px;" HBox.hgrow="NEVER">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <Button fx:id="elimina1" layoutX="80.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#eliminaUno" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="x" textFill="RED">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="nome1" layoutX="41.0" layoutY="47.0" text="FACOLTA1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pane2" maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-width: 3px;">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <Button fx:id="elimina2" layoutX="77.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#eliminaDue" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="x" textFill="RED">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="nome2" layoutX="38.0" layoutY="46.0" text="FACOLTA2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pane3" maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-width: 3px;">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <Button fx:id="elimina3" layoutX="80.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#eliminaTre" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="x" textFill="RED">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="nome3" layoutX="53.0" layoutY="46.0" text="FACOLTA3">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </GridPane>
       <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#tastoLogout" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black; -fx-background-radius: 20;" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT">

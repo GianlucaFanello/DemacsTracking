@@ -2,6 +2,7 @@ package org.example.demacstracking.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -17,6 +18,7 @@ import org.example.demacstracking.service.utenteService.UtenteCorrente;
 import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
+import javax.swing.text.LabelView;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -31,6 +33,8 @@ public class SceltaCuboController {
     private ScrollPane scrollPane;
     @FXML
     private GridPane btnGrid;
+    @FXML
+    private Label errore;
 
     private final CuboDao  cuboDao = new CuboDao();
 
@@ -75,6 +79,9 @@ public class SceltaCuboController {
         scrollPane.setFitToWidth(true);
 
         List<Cubo> allCubi = cuboDao.getAllCubi();
+
+        errore.setVisible(allCubi.isEmpty());
+        errore.setManaged(allCubi.isEmpty());
 
         int col = 0, row = 0;
         for (Cubo c : allCubi) {

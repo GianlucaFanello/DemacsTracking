@@ -49,6 +49,17 @@ public class AulaDao {
         }
     }
 
+    public void eliminaAulaByCubo(String cubo) throws SQLException{
+        String query = "DELETE FROM aula WHERE cubo=?";
+
+        try ( Connection connection = DBManager.getInstance().getConnection();
+        PreparedStatement stmt = connection.prepareStatement(query)
+        ){
+            stmt.setString(1, cubo);
+            stmt.executeUpdate();
+        }
+    }
+
     // --- MODIFICA AULA ---
     public boolean modificaAula(Aula aula) throws SQLException{
         String query = "UPDATE aula SET ubicazione=?,capienza=?,descrizione=? WHERE cubo=? AND nome=?";

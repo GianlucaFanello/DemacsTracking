@@ -72,6 +72,11 @@ public class ModificaAulaController {
         String _descrizione = descrizione.getText();
         String _cubo = VisualizzazioneCorrente.getInstance().getCuboCorrente().getNome();
 
+        if(_nome.isEmpty() || _ubicazione.isEmpty() || _capienza.isEmpty() || _descrizione.isEmpty() || _cubo.isEmpty()){
+            errore.setVisible(true);
+            return;
+        }
+
         Aula aula = new Aula(_cubo,_ubicazione,_nome,Integer.parseInt(_capienza),_descrizione);
 
         if(!aulaDao.modificaAula(aula)) {

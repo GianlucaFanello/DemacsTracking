@@ -44,6 +44,13 @@ public class CuboPageController {
     private VBox boxDistributori;
     @FXML
     private VBox boxSegreterie;
+    @FXML
+    private Label erroreAula;
+    @FXML
+    private Label erroreDistributore;
+    @FXML
+    private Label erroreSegreteria;
+
 
     private final BooleanProperty editMode = new SimpleBooleanProperty(false);
     private final BooleanProperty elimMode = new SimpleBooleanProperty(false);
@@ -75,6 +82,9 @@ public class CuboPageController {
 
         List<Aula> aule = aulaDao.getAllAule();
 
+        erroreAula.setVisible(aule.isEmpty());
+        erroreAula.setManaged(aule.isEmpty());
+
         for(Aula a: aule) {
             try {
                 FXMLLoader loader = new FXMLLoader(
@@ -97,6 +107,9 @@ public class CuboPageController {
     private void inserisciDistributori() throws SQLException {
         List<Distributore> distributori = distributoreDao.getAllDistributori();
 
+        erroreDistributore.setVisible(distributori.isEmpty());
+        erroreDistributore.setManaged(distributori.isEmpty());
+
         for(Distributore d: distributori) {
             try {
                 FXMLLoader loader = new FXMLLoader(
@@ -118,6 +131,9 @@ public class CuboPageController {
 
     private void inserisciSegreterie() throws SQLException {
         List<Segreteria> segreterie = segreteriaDao.getAllSegreterie();
+
+        erroreSegreteria.setVisible(segreterie.isEmpty());
+        erroreSegreteria.setManaged(segreterie.isEmpty());
 
         for(Segreteria s: segreterie) {
             try {

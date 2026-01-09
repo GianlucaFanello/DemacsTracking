@@ -5,8 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import org.example.demacstracking.model.dao.AulaDao;
 import org.example.demacstracking.model.dao.CuboDao;
+import org.example.demacstracking.model.dao.DistributoreDao;
+import org.example.demacstracking.model.dao.SegreteriaDao;
 import org.example.demacstracking.model.dto.Cubo;
+import org.example.demacstracking.model.dto.strutture.Aula;
+import org.example.demacstracking.model.dto.strutture.Distributore;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
 import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
@@ -31,6 +36,9 @@ public class EliminaCuboController {
     private Label nome2;
     @FXML
     private Label nome3;
+
+    @FXML
+    private Label erroreNoCubo;
 
     private Label [] nomeList = null;
 
@@ -67,6 +75,9 @@ public class EliminaCuboController {
         panelist = new Pane[] {pane1,pane2,pane3};
 
         allCubo = cuboDao.getAllCubi();
+        erroreNoCubo.setVisible(allCubo.isEmpty());
+        errore.setManaged(allCubo.isEmpty());
+
         mostraCardFacolta();
     }
 
@@ -84,6 +95,7 @@ public class EliminaCuboController {
             showError();
             return;
         }
+        eliminaStrutture(nome1.getText());
         SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
@@ -92,6 +104,7 @@ public class EliminaCuboController {
             showError();
             return;
         }
+        eliminaStrutture(nome2.getText());
         SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
@@ -100,6 +113,7 @@ public class EliminaCuboController {
             showError();
             return;
         }
+        eliminaStrutture(nome3.getText());
         SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
@@ -119,6 +133,17 @@ public class EliminaCuboController {
 
     private void showError() {
         errore.setVisible(true);
+    }
+
+    private void eliminaStrutture(String cubo) throws SQLException {
+
+        SegreteriaDao segreteriaDao = new SegreteriaDao();
+        DistributoreDao distributoreDao = new DistributoreDao();
+        AulaDao aulaDao = new AulaDao();
+
+        segreteriaDao.eliminaSegreteriaByCubo(cubo);
+        distributoreDao.eliminaDistributoreByCubo(cubo);
+        aulaDao.eliminaAulaByCubo(cubo);
     }
 
 

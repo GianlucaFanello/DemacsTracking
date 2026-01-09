@@ -29,6 +29,11 @@ public class InserisciAulaController {
 
     private final AulaDao  aulaDao =  new AulaDao();
 
+    public void initialize(){
+        errore.setVisible(false);
+        errore.setManaged(false);
+    }
+
     public void tastoAnnulla(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("CuboPage.fxml");
     }

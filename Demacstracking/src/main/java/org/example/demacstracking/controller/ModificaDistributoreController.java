@@ -62,6 +62,12 @@ public class ModificaDistributoreController {
     void tastoInvia(MouseEvent event) throws SQLException, IOException {
 
         String _ubicazione = ubicazione.getText();
+
+        if (_ubicazione.isEmpty()) {
+            errore.setVisible(true);
+            return;
+        }
+
         distributore.setUbicazione(_ubicazione);
 
         VisualizzazioneCorrente.getInstance().resetStruttura();

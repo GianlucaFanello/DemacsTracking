@@ -50,11 +50,18 @@
                         </Label>
                         <ScrollPane fx:id="segreteria" prefHeight="147.0" prefWidth="532.0">
                            <content>
-                              <VBox fx:id="boxSegreterie" alignment="TOP_CENTER" prefHeight="143.0" prefWidth="546.0" />
+                              <VBox fx:id="boxSegreterie" alignment="TOP_CENTER" prefHeight="143.0" prefWidth="546.0">
+                                 <children>
+                                    <Label fx:id="erroreSegreteria" text="Nessuna segreteria presente">
+                                       <font>
+                                          <Font size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children></VBox>
                            </content></ScrollPane>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="163.0" fitWidth="307.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" onMouseClicked="#tastoHome">
+                  <ImageView fitHeight="163.0" fitWidth="307.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../foto/DemacsTracking.png" />
                      </image>
@@ -68,7 +75,14 @@
                         </Label>
                         <ScrollPane fx:id="distributori" prefHeight="200.0" prefWidth="200.0">
                            <content>
-                              <VBox fx:id="boxDistributori" alignment="TOP_CENTER" prefHeight="144.0" prefWidth="546.0" />
+                              <VBox fx:id="boxDistributori" alignment="TOP_CENTER" prefHeight="144.0" prefWidth="546.0">
+                                 <children>
+                                    <Label fx:id="erroreDistributore" text="Nessun distributore presente">
+                                       <font>
+                                          <Font size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children></VBox>
                            </content></ScrollPane>
                      </children>
                   </VBox>
@@ -83,7 +97,14 @@
                   </Label>
                   <ScrollPane fx:id="aule" prefHeight="398.0" prefWidth="387.0" VBox.vgrow="ALWAYS">
                      <content>
-                        <VBox fx:id="boxAule" alignment="TOP_CENTER" prefHeight="556.0" prefWidth="447.0" />
+                        <VBox fx:id="boxAule" alignment="TOP_CENTER" prefHeight="556.0" prefWidth="447.0">
+                           <children>
+                              <Label fx:id="erroreAula" text="Nessun aula presente">
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children></VBox>
                      </content></ScrollPane>
                </children>
             </VBox>

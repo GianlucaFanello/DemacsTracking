@@ -53,6 +53,8 @@ public class EliminaFacoltaController {
     private Pane pane2;
     @FXML
     private Pane pane3;
+    @FXML
+    private Label erroreNoFacolta;
 
     private Pane[] panelist;
 
@@ -70,6 +72,10 @@ public class EliminaFacoltaController {
         panelist = new Pane[] {pane1,pane2,pane3};
 
         allFacolta = facoltaDao.getAllFacolta();
+
+        erroreNoFacolta.setVisible(allFacolta.isEmpty());
+        erroreNoFacolta.setManaged(allFacolta.isEmpty());
+
         mostraCardFacolta();
     }
 
