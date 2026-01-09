@@ -128,4 +128,7 @@ public class ArchivioSegnalazioniController {
     public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
+
+
+
 }

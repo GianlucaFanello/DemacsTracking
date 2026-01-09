@@ -33,6 +33,7 @@ public class UtenteCorrente {
             case "utente" -> this.status = Ruoli.UTENTE;
             case "admin" -> this.status = Ruoli.ADMIN;
             case "ospite" -> this.status = Ruoli.OSPITE;
+            case "ente" -> this.status = Ruoli.ENTE;
             default -> throw new IllegalArgumentException("Status sconosciuto: " + status);
         }
     }

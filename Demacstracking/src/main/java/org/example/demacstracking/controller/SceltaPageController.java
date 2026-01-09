@@ -27,7 +27,7 @@ public class SceltaPageController {
         RoleStrategy strategy = StrategyFactory.creaStrategy(UtenteCorrente.getInstance().getStatus());
 
         segnala.setVisible(strategy.puoSegnalare());
-        segnalazioni.setVisible(strategy.puoEliminare());
+        segnalazioni.setVisible(strategy.puoVisualizzareSegnalazioni());
     }
 
     public void tastoCubi(MouseEvent mouseEvent) throws IOException {

@@ -161,4 +161,9 @@ public class CuboPageController {
         elimMode.set(!elimMode.get());
     }
 
+    public void tastoHome(MouseEvent mouseEvent) throws IOException {
+        VisualizzazioneCorrente.getInstance().resetCubo();
+        SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
+    }
+
 }

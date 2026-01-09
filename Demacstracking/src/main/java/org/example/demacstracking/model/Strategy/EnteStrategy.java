@@ -1,6 +1,7 @@
 package org.example.demacstracking.model.Strategy;
 
-public class UtenteStrategy implements RoleStrategy {
+public class EnteStrategy implements RoleStrategy {
+
 
     @Override
     public boolean puoCreare() {
@@ -19,11 +20,11 @@ public class UtenteStrategy implements RoleStrategy {
 
     @Override
     public boolean puoSegnalare() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean puoVisualizzareSegnalazioni() {
-        return false;
+        return true;
     }
 }
