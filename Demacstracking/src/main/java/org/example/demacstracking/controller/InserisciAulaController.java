@@ -48,12 +48,14 @@ public class InserisciAulaController {
 
         if(_nome.isEmpty() || _ubicazione.isEmpty() || _capienza.isEmpty() || descrizione.isEmpty()) {
             showError("Compila tutti i campi!");
+            return;
         }
 
         String cubo = VisualizzazioneCorrente.getInstance().getCuboCorrente().getNome();
 
         if(aulaDao.aulaPresente(_nome, cubo)) {
             showError("Aula già presente!");
+            return;
         }
 
         AulaHandler.getInstance().init(nome.getText(), ubicazione.getText(), Integer.parseInt(capienza.getText()), cubo, descrizione);

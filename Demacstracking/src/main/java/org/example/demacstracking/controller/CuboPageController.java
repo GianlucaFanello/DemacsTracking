@@ -144,6 +144,8 @@ public class CuboPageController {
     }
 
     public void tastoLogout(MouseEvent mouseEvent) throws IOException {
+        UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 

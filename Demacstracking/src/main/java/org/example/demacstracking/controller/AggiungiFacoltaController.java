@@ -64,6 +64,7 @@ public class AggiungiFacoltaController {
     }
 
     public void tastoHome(MouseEvent mouseEvent) throws IOException {
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 

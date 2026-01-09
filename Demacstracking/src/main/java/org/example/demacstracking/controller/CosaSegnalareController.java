@@ -5,6 +5,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.tipoSegnalazioneHandler;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ public class CosaSegnalareController {
 
     public void tastoLogOut(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
 
 

@@ -94,7 +94,7 @@
             </Label>
          </children>
       </GridPane>
-      <ImageView fitHeight="392.0" fitWidth="419.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <ImageView fitHeight="392.0" fitWidth="419.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
             <Image url="@../foto/DemacsTracking.png" />
          </image></ImageView>

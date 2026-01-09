@@ -47,6 +47,7 @@ public class SceltaFacoltaPageController {
     }
 
     public void tastoIndietro(MouseEvent mouseEvent) throws IOException {
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 

@@ -20,7 +20,7 @@ import java.time.temporal.UnsupportedTemporalTypeException;
 public class ModificaFacoltaController {
 
     @FXML
-    private TextField nome;
+    private Label nome;
     @FXML
     private TextField cfu;
     @FXML
@@ -54,7 +54,7 @@ public class ModificaFacoltaController {
     }
 
     public void tastoHome(MouseEvent mouseEvent) throws IOException {
-        VisualizzazioneCorrente.getInstance().resetFacolta();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 
@@ -66,8 +66,10 @@ public class ModificaFacoltaController {
 
         Facolta _facolta = new Facolta(_nome,_durata,_cfu,facolta.getDipartimento(),_lingua);
 
-        if(!facoltaDao.modificaFacolta(_facolta) )
+        if(!facoltaDao.modificaFacolta(_facolta) ) {
             showError();
+            return;
+        }
 
         VisualizzazioneCorrente.getInstance().setFacoltaCorrente(_facolta);
         SceneHandler.getInstance().sceneLoader("InterniFacolta.fxml");

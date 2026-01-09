@@ -79,7 +79,7 @@
       </Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#tastoHome" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../../../../Downloads/demacs_tracking_black.png" />
+            <Image url="@../foto/DemacsTracking.png" />
          </image></ImageView>
    </children>
 </GridPane>

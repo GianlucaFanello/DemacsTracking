@@ -34,10 +34,13 @@ public class AggiungiCuboController {
 
         if(nome.isEmpty()){
             showError("Compila tutti i campi!");
+            return;
         }
 
-        if(cuboDao.isCuboPresente(nome))
+        if(cuboDao.isCuboPresente(nome)) {
             showError("Cubo già presente!");
+            return;
+        }
 
         if(cuboDao.inserisciCubo(new Cubo(nome)) ){
             SceneHandler.getInstance().sceneLoader("SceltaCubo.fxml");
@@ -53,6 +56,7 @@ public class AggiungiCuboController {
     }
 
     public void tastoHome(MouseEvent mouseEvent) throws IOException {
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");
     }
 

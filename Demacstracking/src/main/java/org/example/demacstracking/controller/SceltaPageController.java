@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import org.example.demacstracking.model.Strategy.RoleStrategy;
 import org.example.demacstracking.model.Strategy.StrategyFactory;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 
@@ -39,6 +40,7 @@ public class SceltaPageController {
 
     public void tastoLogout(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 

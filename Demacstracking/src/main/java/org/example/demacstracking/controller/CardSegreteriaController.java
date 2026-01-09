@@ -43,7 +43,7 @@ public class CardSegreteriaController {
 
     public void tastoModifica(MouseEvent mouseEvent) throws IOException {
         VisualizzazioneCorrente.getInstance().setStruttura(segreteria);
-        SceneHandler.getInstance().sceneLoader("ModificaDistributore.fxml");
+        SceneHandler.getInstance().sceneLoader("ModificaSegreteria.fxml");
     }
 
     public void tastoElimina(MouseEvent mouseEvent) throws SQLException, IOException {

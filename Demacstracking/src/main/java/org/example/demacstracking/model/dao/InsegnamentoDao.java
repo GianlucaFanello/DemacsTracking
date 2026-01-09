@@ -159,4 +159,23 @@ public class InsegnamentoDao {
             return stmt.executeUpdate() > 0;
         }
     }
+
+    public boolean modificaAssociazione(int anno) throws SQLException {
+        String query = "UPDATE facolta_insegnamento SET anno = ? WHERE insegnamento=? AND facolta=?";
+
+        try ( Connection connection = DBManager.getInstance().getConnection();
+              PreparedStatement stmt = connection.prepareStatement(query);
+        ) {
+            stmt.setInt(1, anno);
+            stmt.setString(2, VisualizzazioneCorrente.getInstance().getInsegnamentoCorrente().getId());
+            stmt.setString(3, VisualizzazioneCorrente.getInstance().getFacoltaCorrente().getNome());
+
+
+            System.out.println("Anno: " + anno +
+                    " Insegnamento: " + VisualizzazioneCorrente.getInstance().getInsegnamentoCorrente().getNome() +
+                    " Facoltà: " + VisualizzazioneCorrente.getInstance().getFacoltaCorrente().getNome());
+
+            return stmt.executeUpdate() > 0;
+        }
+    }
 }

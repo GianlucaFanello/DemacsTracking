@@ -8,6 +8,7 @@ import org.example.demacstracking.model.dao.SegnalazioneDao;
 import org.example.demacstracking.model.dto.Segnalazione;
 import org.example.demacstracking.model.tipoSegnalazioneHandler;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class InserisciSegnalazioneController {
 
     public void tastoLogOut(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
 
     }
@@ -36,6 +38,5 @@ public class InserisciSegnalazioneController {
         segnalazione = new Segnalazione(descrizione.getText(), UtenteCorrente.getInstance().getUtente().getNome(), tipoSegnalazioneHandler.getInstance().tipoSegnalazione());
         segnalazioneDao.inserisciSegnalazione(segnalazione);
         messaggioDiRiuscita.setVisible(true);
-
     }
 }

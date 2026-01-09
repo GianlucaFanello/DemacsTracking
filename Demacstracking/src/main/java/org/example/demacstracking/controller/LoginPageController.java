@@ -55,10 +55,6 @@ public class LoginPageController {
         SceneHandler.getInstance().sceneLoader("RegisterPage.fxml");
     }
 
-    public void tastoHome(MouseEvent mouseEvent) throws IOException {
-        SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
-    }
-
     public void tastoOspite(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().setStatus("ospite");
         SceneHandler.getInstance().sceneLoader("SceltaPage.fxml");

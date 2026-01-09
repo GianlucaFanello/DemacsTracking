@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import org.example.demacstracking.model.dao.CuboDao;
 import org.example.demacstracking.model.dto.Cubo;
 import org.example.demacstracking.service.utenteService.UtenteCorrente;
+import org.example.demacstracking.service.utenteService.VisualizzazioneCorrente;
 import org.example.demacstracking.view.SceneHandler;
 
 import java.io.IOException;
@@ -74,24 +75,31 @@ public class EliminaCuboController {
 
     public void tastoLogout(MouseEvent mouseEvent) throws IOException {
         UtenteCorrente.getInstance().logout();
+        VisualizzazioneCorrente.getInstance().reset();
         SceneHandler.getInstance().sceneLoader("SceltaAccesso.fxml");
     }
 
     public void  eliminaUno(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!cuboDao.eliminaCubo(nome1.getText()))
+        if(!cuboDao.eliminaCubo(nome1.getText())) {
             showError();
+            return;
+        }
         SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
     public void eliminaDue(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!cuboDao.eliminaCubo(nome2.getText()))
+        if(!cuboDao.eliminaCubo(nome2.getText())){
             showError();
+            return;
+        }
         SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
     public void eliminaTre(MouseEvent mouseEvent) throws IOException, SQLException {
-        if(!cuboDao.eliminaCubo(nome3.getText()))
+        if(!cuboDao.eliminaCubo(nome3.getText())) {
             showError();
+            return;
+        }
         SceneHandler.getInstance().sceneLoader("EliminaCubo.fxml");
     }
 
