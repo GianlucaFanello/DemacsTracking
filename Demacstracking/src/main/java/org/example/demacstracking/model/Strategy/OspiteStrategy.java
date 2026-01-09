@@ -22,4 +22,9 @@ public class OspiteStrategy implements RoleStrategy {
     public boolean puoSegnalare() {
         return false;
     }
+
+    @Override
+    public boolean puoVisualizzareSegnalazioni() {
+        return false;
+    }
 }

@@ -7,6 +7,7 @@ public class StrategyFactory {
             case ADMIN -> new AdminStrategy();
             case UTENTE -> new UtenteStrategy();
             case OSPITE -> new OspiteStrategy();
+            case ENTE -> new EnteStrategy();
         };
     }
 }

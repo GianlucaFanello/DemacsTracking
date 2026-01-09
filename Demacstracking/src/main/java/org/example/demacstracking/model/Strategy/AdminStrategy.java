@@ -21,4 +21,9 @@ public class AdminStrategy implements RoleStrategy {
     public boolean puoSegnalare() {
         return true;
     }
+
+    @Override
+    public boolean puoVisualizzareSegnalazioni() {
+        return false;
+    }
 }

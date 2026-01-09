@@ -5,6 +5,7 @@ public interface RoleStrategy {
     public enum Ruoli {
         ADMIN,
         UTENTE,
+        ENTE,
         OSPITE
     }
 
@@ -16,4 +17,5 @@ public interface RoleStrategy {
 
     boolean puoSegnalare();
 
+    boolean puoVisualizzareSegnalazioni();
 }
